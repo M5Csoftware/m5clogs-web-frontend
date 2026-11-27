@@ -346,16 +346,16 @@ export default function AdminDashboardPage() {
 
         {/* Clean, Readable Table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-center border-collapse">
             <thead>
               <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] text-[14px] font-bold">
-                <th className="py-4 px-3.5 whitespace-nowrap">ID</th>
-                <th className="py-4 px-3.5 whitespace-nowrap">Company &amp; Buyer</th>
-                <th className="py-4 px-3.5 whitespace-nowrap">Category</th>
-                <th className="py-4 px-3.5">Requirement</th>
-                <th className="py-4 px-3.5 whitespace-nowrap">Est. Value</th>
-                <th className="py-4 px-3.5 whitespace-nowrap">Status</th>
-                <th className="py-4 px-3.5 whitespace-nowrap">Date</th>
+                <th className="py-4 px-3.5 text-center whitespace-nowrap">ID</th>
+                <th className="py-4 px-3.5 text-center whitespace-nowrap">Company &amp; Buyer</th>
+                <th className="py-4 px-3.5 text-center whitespace-nowrap">Category</th>
+                <th className="py-4 px-3.5 text-center">Requirement</th>
+                <th className="py-4 px-3.5 text-center whitespace-nowrap">Est. Value</th>
+                <th className="py-4 px-3.5 text-center whitespace-nowrap">Status</th>
+                <th className="py-4 px-3.5 text-center whitespace-nowrap">Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--line)]">
@@ -364,23 +364,25 @@ export default function AdminDashboardPage() {
                   key={lead.id}
                   className="hover:bg-[var(--hanji)]/60 transition"
                 >
-                  <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                     {lead.id}
                   </td>
-                  <td className="py-4 px-3.5 whitespace-nowrap">
-                    <div className="font-bold text-[14px] text-[var(--ink)]">{lead.company}</div>
-                    <div className="text-[14px] text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
+                  <td className="py-4 px-3.5 whitespace-nowrap text-center">
+                    <div className="flex flex-col items-center justify-center">
+                      <div className="font-bold text-[14px] text-[var(--ink)]">{lead.company}</div>
+                      <div className="text-[14px] text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
+                    </div>
                   </td>
-                  <td className="py-4 px-3.5 font-semibold text-[14px] text-[var(--ink)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-semibold text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                     {lead.category}
                   </td>
-                  <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium max-w-xs truncate">
+                  <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium max-w-xs truncate text-center">
                     {lead.volume}
                   </td>
-                  <td className="py-4 px-3.5 font-bold font-mono text-[14px] text-[var(--ink)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-bold font-mono text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                     {lead.value}
                   </td>
-                  <td className="py-4 px-3.5 whitespace-nowrap">
+                  <td className="py-4 px-3.5 whitespace-nowrap text-center">
                     <span
                       className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-[14px] font-bold border whitespace-nowrap ${getStatusBadge(
                         lead.status
@@ -389,7 +391,7 @@ export default function AdminDashboardPage() {
                       {lead.status}
                     </span>
                   </td>
-                  <td className="py-4 px-3.5 font-mono text-[14px] text-[var(--muted)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-mono text-[14px] text-[var(--muted)] whitespace-nowrap text-center">
                     {lead.date}
                   </td>
                 </tr>

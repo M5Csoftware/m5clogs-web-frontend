@@ -83,7 +83,7 @@ export default function AdminLeadsPage() {
       const [datePart, ...timeParts] = createdAt.split(",");
       const timePart = timeParts.join(",").trim();
       return (
-        <div className="flex flex-col whitespace-nowrap">
+        <div className="flex flex-col items-center justify-center text-center whitespace-nowrap">
           <span className="text-[14px] font-semibold text-[var(--ink)] leading-snug">{datePart.trim()}</span>
           {timePart && (
             <span className="text-[14px] text-[var(--muted)] font-mono mt-0.5 leading-snug">{timePart}</span>
@@ -94,13 +94,13 @@ export default function AdminLeadsPage() {
     const match = createdAt.match(/^(.+?\d{4})[\s]+(\d{1,2}:\d{2}.*)$/i);
     if (match) {
       return (
-        <div className="flex flex-col whitespace-nowrap">
+        <div className="flex flex-col items-center justify-center text-center whitespace-nowrap">
           <span className="text-[14px] font-semibold text-[var(--ink)] leading-snug">{match[1].trim()}</span>
           <span className="text-[14px] text-[var(--muted)] font-mono mt-0.5 leading-snug">{match[2].trim()}</span>
         </div>
       );
     }
-    return <span className="text-[14px] font-semibold text-[var(--ink)]">{createdAt}</span>;
+    return <span className="text-[14px] font-semibold text-[var(--ink)] text-center">{createdAt}</span>;
   };
 
   const getStatusBadge = (status: string) => {
@@ -454,17 +454,17 @@ export default function AdminLeadsPage() {
       {selectedForm === "contact" && (
         <div className="bg-[var(--paper)] border border-[var(--line)] rounded-3xl shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-center border-collapse">
               <thead>
                 <tr className="border-b-2 border-[var(--line)] bg-[var(--hanji-2)]/40 text-[var(--muted)] text-[14px] font-bold">
-                  <th className="py-4 px-3.5 whitespace-nowrap">Lead ID</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Submitter Name &amp; Contact</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Company</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Inquiry Topic</th>
-                  <th className="py-4 px-3.5">Message Excerpt</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Date</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Status</th>
-                  <th className="py-4 px-3.5 text-right whitespace-nowrap">Actions</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Lead ID</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Submitter Name &amp; Contact</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Company</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Inquiry Topic</th>
+                  <th className="py-4 px-3.5 text-center">Message Excerpt</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Date</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Status</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--line)]">
@@ -474,43 +474,45 @@ export default function AdminLeadsPage() {
                     onClick={() => setActiveContactLead(lead)}
                     className="hover:bg-[var(--hanji)]/60 transition cursor-pointer group"
                   >
-                    <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap">
+                    <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                       {lead.id}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
-                      <div className="font-bold text-[14px] text-[var(--ink)] group-hover:text-[var(--persimmon)] transition-colors">
-                        {lead.name}
-                      </div>
-                      <div className="text-[14px] text-[var(--muted)] font-medium mt-0.5">
-                        {lead.email}
-                      </div>
-                      {lead.phone && (
-                        <div className="text-[14px] text-[var(--muted)] font-mono mt-0.5">
-                          {lead.phone}
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
+                      <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-[14px] text-[var(--ink)] group-hover:text-[var(--persimmon)] transition-colors">
+                          {lead.name}
                         </div>
-                      )}
+                        <div className="text-[14px] text-[var(--muted)] font-medium mt-0.5">
+                          {lead.email}
+                        </div>
+                        {lead.phone && (
+                          <div className="text-[14px] text-[var(--muted)] font-mono mt-0.5">
+                            {lead.phone}
+                          </div>
+                        )}
+                      </div>
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-semibold text-[var(--ink)]">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-semibold text-[var(--ink)] text-center">
                       {lead.company || "Individual"}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       <span className="text-[14px] font-medium px-3 py-1 rounded-lg bg-[var(--hanji)] border border-[var(--line)] text-[var(--ink)] whitespace-nowrap inline-block">
                         {lead.topic || "General enquiry"}
                       </span>
                     </td>
-                    <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium max-w-xs truncate">
+                    <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium max-w-xs truncate text-center">
                       {lead.message}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       {renderDateWithTime(lead.createdAt)}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-[14px] font-bold border whitespace-nowrap ${getStatusBadge(lead.status)}`}>
                         {lead.status}
                       </span>
                     </td>
-                    <td className="py-4 px-3.5 text-right whitespace-nowrap" onClick={(e) => e.stopPropagation()}>
-                      <div className="flex items-center justify-end gap-3">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center" onClick={(e) => e.stopPropagation()}>
+                      <div className="flex items-center justify-center gap-3">
                         {/* Eye Icon Button (Read) */}
                         <div className="relative group/tip inline-flex items-center justify-center">
                           <button
@@ -575,18 +577,18 @@ export default function AdminLeadsPage() {
       {selectedForm === "partnership" && (
         <div className="bg-[var(--paper)] border border-[var(--line)] rounded-3xl shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-center border-collapse">
               <thead>
                 <tr className="border-b-2 border-[var(--line)] bg-[var(--hanji-2)]/40 text-[var(--muted)] text-[14px] font-bold">
-                  <th className="py-4 px-3.5 whitespace-nowrap">Lead ID</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Company &amp; Submitter</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Business Type</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">City</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Categories Requested</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Enquiry Type</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Date</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Status</th>
-                  <th className="py-4 px-3.5 text-right whitespace-nowrap">Actions</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Lead ID</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Company &amp; Submitter</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Business Type</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">City</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Categories Requested</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Enquiry Type</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Date</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Status</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--line)]">
@@ -596,28 +598,30 @@ export default function AdminLeadsPage() {
                     onClick={() => setActivePartnershipLead(lead)}
                     className="hover:bg-[var(--hanji)]/60 transition cursor-pointer group"
                   >
-                    <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap">
+                    <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                       {lead.id}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
-                      <div className="font-bold text-[14px] text-[var(--ink)] group-hover:text-[var(--jade)] transition-colors">
-                        {lead.company}
-                      </div>
-                      <div className="text-[14px] text-[var(--muted)] font-medium mt-0.5">
-                        {lead.name} • {lead.email}
-                      </div>
-                      <div className="text-[14px] text-[var(--muted)] font-mono mt-0.5">
-                        {lead.phone}
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
+                      <div className="flex flex-col items-center justify-center">
+                        <div className="font-bold text-[14px] text-[var(--ink)] group-hover:text-[var(--jade)] transition-colors">
+                          {lead.company}
+                        </div>
+                        <div className="text-[14px] text-[var(--muted)] font-medium mt-0.5">
+                          {lead.name} • {lead.email}
+                        </div>
+                        <div className="text-[14px] text-[var(--muted)] font-mono mt-0.5">
+                          {lead.phone}
+                        </div>
                       </div>
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-semibold text-[var(--ink)]">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-semibold text-[var(--ink)] text-center">
                       {lead.bizType}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-medium text-[var(--ink)]">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-medium text-[var(--ink)] text-center">
                       {lead.city}
                     </td>
-                    <td className="py-4 px-3.5">
-                      <div className="flex flex-wrap gap-1.5 max-w-xs">
+                    <td className="py-4 px-3.5 text-center">
+                      <div className="flex flex-wrap gap-1.5 max-w-xs justify-center mx-auto">
                         {lead.categories.map((c) => (
                           <span key={c} className="text-[14px] font-medium px-2.5 py-0.5 rounded bg-[var(--hanji)] border border-[var(--line)] text-[var(--ink)] whitespace-nowrap">
                             {c}
@@ -625,19 +629,19 @@ export default function AdminLeadsPage() {
                         ))}
                       </div>
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-bold text-[var(--ink)]">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-bold text-[var(--ink)] text-center">
                       {lead.enquiryType}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       {renderDateWithTime(lead.createdAt)}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-[14px] font-bold border whitespace-nowrap ${getStatusBadge(lead.status)}`}>
                         {lead.status}
                       </span>
                     </td>
-                    <td className="py-4 px-3.5 text-right whitespace-nowrap" onClick={(e) => e.stopPropagation()}>
-                      <div className="flex items-center justify-end gap-3">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center" onClick={(e) => e.stopPropagation()}>
+                      <div className="flex items-center justify-center gap-3">
                         {/* Eye Icon Button (Read) */}
                         <div className="relative group/tip inline-flex items-center justify-center">
                           <button
@@ -702,38 +706,38 @@ export default function AdminLeadsPage() {
       {selectedForm === "newsletter" && (
         <div className="bg-[var(--paper)] border border-[var(--line)] rounded-3xl shadow-xs overflow-hidden max-w-4xl">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse">
+            <table className="w-full text-center border-collapse">
               <thead>
                 <tr className="border-b-2 border-[var(--line)] bg-[var(--hanji-2)]/40 text-[var(--muted)] text-[14px] font-bold">
-                  <th className="py-4 px-3.5 whitespace-nowrap">ID</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Subscriber Email</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Signup Source</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Date Added</th>
-                  <th className="py-4 px-3.5 whitespace-nowrap">Status</th>
-                  <th className="py-4 px-3.5 text-right whitespace-nowrap">Actions</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">ID</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Subscriber Email</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Signup Source</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Date Added</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Status</th>
+                  <th className="py-4 px-3.5 text-center whitespace-nowrap">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-[var(--line)]">
                 {filteredNewsletterLeads.map((sub) => (
                   <tr key={sub.id} className="hover:bg-[var(--hanji)]/60 transition">
-                    <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap">
+                    <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                       {sub.id}
                     </td>
-                    <td className="py-4 px-3.5 font-bold text-[14px] text-[var(--ink)] whitespace-nowrap">
+                    <td className="py-4 px-3.5 font-bold text-[14px] text-[var(--ink)] whitespace-nowrap text-center">
                       {sub.email}
                     </td>
-                    <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium whitespace-nowrap">
+                    <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium whitespace-nowrap text-center">
                       {sub.source}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       {renderDateWithTime(sub.createdAt)}
                     </td>
-                    <td className="py-4 px-3.5 whitespace-nowrap">
+                    <td className="py-4 px-3.5 whitespace-nowrap text-center">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-[14px] font-bold bg-emerald-50 text-emerald-800 border border-emerald-200 whitespace-nowrap">
                         {sub.status}
                       </span>
                     </td>
-                    <td className="py-4 px-3.5 text-right whitespace-nowrap">
+                    <td className="py-4 px-3.5 text-center whitespace-nowrap">
                       <div className="relative group/tip inline-flex items-center justify-center">
                         <button
                           type="button"
