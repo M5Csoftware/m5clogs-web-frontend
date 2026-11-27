@@ -1628,21 +1628,35 @@ label {
   font-size: 0.8rem;
 }
 
-input, select, textarea {
-  width: 100%;
-  font: inherit;
-  font-size: 1rem;
-  padding: 13px 15px;
-  border: 1.5px solid var(--line);
-  border-radius: 14px;
-  background: var(--paper);
-  color: var(--ink);
+@layer base {
+  input, select, textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    padding: 13px 15px;
+    border: 1.5px solid var(--line);
+    border-radius: 14px;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--jade);
+    box-shadow: 0 0 0 4px rgba(47, 107, 92, 0.15);
+  }
 }
 
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--jade);
-  box-shadow: 0 0 0 4px rgba(47, 107, 92, 0.15);
+/* Ensure inputs with left icon have adequate padding across all browsers and layers */
+.has-left-icon,
+input[class*="pl-11"],
+input[class*="pl-12"] {
+  padding-left: 2.85rem !important;
+}
+
+input[class*="pl-9"],
+input[class*="pl-10"] {
+  padding-left: 2.5rem !important;
 }
 
 .f2 {

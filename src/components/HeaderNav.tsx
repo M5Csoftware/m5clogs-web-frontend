@@ -20,6 +20,28 @@ export default function HeaderNav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menu on route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Handle ESC key and scroll locking when mobile menu drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === "Escape") setMobileMenuOpen(false);
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = "";
+        window.removeEventListener("keydown", handleKeyDown);
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [mobileMenuOpen]);
+
   if (pathname?.startsWith("/admin")) {
     return null;
   }
@@ -197,110 +219,330 @@ export default function HeaderNav() {
               Wholesale catalogue
             </Link>
 
+            {/* Menu icon button */}
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden btn btn-ink btn-sm"
-              aria-label="Toggle Menu"
+              className="xl:hidden flex items-center justify-center w-10 h-10 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:text-[var(--persimmon)] hover:border-[var(--persimmon)] hover:bg-[var(--hanji-2)] transition shadow-2xs cursor-pointer shrink-0"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
             >
-              Menu
+              {mobileMenuOpen ? (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Slide-over Menu Drawer & Backdrop */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[var(--ink)] text-white p-6 overflow-y-auto flex flex-col justify-between animate-fade-in">
-          <div>
-            <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-6">
-              <KoreanLogo variant="light" />
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-50 bg-black/45 backdrop-blur-xs transition-opacity duration-300"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Slide-over Drawer Panel */}
+          <div
+            className="fixed top-0 right-0 bottom-0 w-full sm:w-[460px] max-w-[92vw] z-50 bg-[var(--paper)] text-[var(--ink)] border-l border-[var(--line)] shadow-2xl flex flex-col justify-between overflow-hidden animate-in slide-in-from-right duration-300 font-sans"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Site Navigation"
+          >
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between px-6 py-5 border-b border-[var(--line)] bg-[var(--hanji)]/60">
+              <KoreanLogo />
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="btn btn-ow btn-sm"
+                className="w-9 h-9 flex items-center justify-center rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:text-[var(--ink)] hover:border-[var(--ink)] transition cursor-pointer shadow-2xs"
+                aria-label="Close menu"
               >
-                Close
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
 
-            <nav className="space-y-4 font-serif text-2xl">
-              <Link
-                href="/products/skincare-beauty"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-baseline justify-between py-2 border-b border-white/10"
-              >
-                <span>Skincare & Beauty</span>
-                <small className="font-kr text-xs text-[var(--celadon)]">뷰티</small>
-              </Link>
-              <Link
-                href="/products/food-beverages"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-baseline justify-between py-2 border-b border-white/10"
-              >
-                <span>Food & Beverages</span>
-                <small className="font-kr text-xs text-[var(--celadon)]">식품</small>
-              </Link>
-              <Link
-                href="/brands"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 border-b border-white/10"
-              >
-                Our Brands
-              </Link>
-              <Link
-                href="/import-distribution"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 border-b border-white/10"
-              >
-                Import & Distribution
-              </Link>
-              <Link
-                href="/partnerships"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 border-b border-white/10"
-              >
-                Partnerships
-              </Link>
-              <Link
-                href="/insights"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 border-b border-white/10"
-              >
-                Insights
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 border-b border-white/10"
-              >
-                About
-              </Link>
-              <Link
-                href="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block py-2 border-b border-white/10"
-              >
-                Contact
-              </Link>
-            </nav>
-          </div>
+            {/* Drawer Body - Scrollable Links Directory */}
+            <div className="flex-1 overflow-y-auto px-6 py-6 space-y-7">
+              {/* Group 1: Products & Brands */}
+              <div>
+                <span className="text-[11px] font-bold tracking-wider text-[var(--muted)] uppercase block mb-2.5">
+                  Products & Portfolio
+                </span>
+                <div className="space-y-1">
+                  <Link
+                    href="/products/skincare-beauty"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Skincare & Beauty
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Serums, toners, sunscreens & dermatological care
+                      </div>
+                    </div>
+                    <span className="font-kr text-xs font-semibold px-2 py-0.5 rounded-md bg-[var(--peach)]/30 text-[var(--persimmon)]">
+                      뷰티
+                    </span>
+                  </Link>
 
-          <div className="pt-8 grid grid-cols-2 gap-3">
-            <Link
-              href="/partnerships?type=catalogue#form"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn btn-p text-center justify-center text-xs"
-            >
-              Wholesale catalogue
-            </Link>
-            <Link
-              href="/where-to-buy"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn btn-ow text-center justify-center text-xs"
-            >
-              Where to buy
-            </Link>
+                  <Link
+                    href="/products/food-beverages"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Food & Beverages
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Ramen, confectionary, snacks & Korean sauces
+                      </div>
+                    </div>
+                    <span className="font-kr text-xs font-semibold px-2 py-0.5 rounded-md bg-[var(--celadon-l)] text-[var(--jade-d)]">
+                      식품
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/brands"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Our Brands Directory
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Authentic Korean brand partners distributed in India
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-[var(--jade)] bg-[var(--celadon-l)]/40 px-2 py-0.5 rounded-md">
+                      Brands
+                    </span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Group 2: Services & Compliance */}
+              <div>
+                <span className="text-[11px] font-bold tracking-wider text-[var(--muted)] uppercase block mb-2.5">
+                  Import, Logistics & Tools
+                </span>
+                <div className="space-y-1">
+                  <Link
+                    href="/import-distribution"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Import & Distribution
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Sea & air freight, cold-chain warehousing & distribution
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/compliance"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        CDSCO & FSSAI Compliance
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Cosmetics registration, food testing & port customs clearance
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-[var(--jade)] bg-[var(--celadon-l)]/40 px-2 py-0.5 rounded-md">
+                      Port Gate
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/rate-calculator"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Duty & Rate Calculator
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Instant landed cost & custom tariff computation
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-[var(--gold)] bg-[var(--hanji-2)] px-2 py-0.5 rounded-md">
+                      Tool
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/tracking"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Consignment Tracking
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Live shipment status & customs inspection locator
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-bold text-sky-700 bg-sky-50 px-2 py-0.5 rounded-md">
+                      Live
+                    </span>
+                  </Link>
+
+                  <Link
+                    href="/where-to-buy"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Where to Buy
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Quick-commerce, retail supermarkets & verified stockists
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Group 3: Company & Collaboration */}
+              <div>
+                <span className="text-[11px] font-bold tracking-wider text-[var(--muted)] uppercase block mb-2.5">
+                  Company & Partnerships
+                </span>
+                <div className="space-y-1">
+                  <Link
+                    href="/partnerships"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Wholesale & Partnerships
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        B2B distribution, quick-commerce & retail supply
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/insights"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Market Insights
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Trade advisories, tariff analysis & industry news
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/about"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        About M5C Logistics
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        The India-Korea bilateral trade gateway
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[15px] font-bold text-[var(--ink)] group-hover:text-[var(--persimmon)] transition">
+                        Contact Us
+                      </div>
+                      <div className="text-xs text-[var(--muted)]">
+                        Offices in Seoul, Mumbai & New Delhi
+                      </div>
+                    </div>
+                  </Link>
+
+                  <Link
+                    href="/privacy"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-[var(--hanji)] transition group"
+                  >
+                    <div>
+                      <div className="text-[14px] font-semibold text-[var(--muted)] group-hover:text-[var(--ink)] transition">
+                        Privacy Policy
+                      </div>
+                      <div className="text-xs text-[var(--muted)]/80">
+                        Data protection & terms of compliance
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Drawer Bottom Actions */}
+            <div className="p-6 border-t border-[var(--line)] bg-[var(--hanji)]/40 space-y-3">
+              <Link
+                href="/partnerships?type=catalogue#form"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 px-4 rounded-xl bg-[var(--persimmon)] hover:bg-[var(--persimmon-d)] text-white font-bold text-sm text-center shadow-xs transition flex items-center justify-center gap-2"
+              >
+                <span>Request Wholesale Catalogue</span>
+                <span>→</span>
+              </Link>
+
+              <div className="flex items-center justify-between pt-1">
+                <Link
+                  href="/admin"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--muted)] hover:text-[var(--ink)] transition"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  </svg>
+                  <span>Admin Portal</span>
+                </Link>
+
+                <span className="text-[11px] text-[var(--muted)]/60 font-mono">
+                  M5C Logistics v2.4
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );

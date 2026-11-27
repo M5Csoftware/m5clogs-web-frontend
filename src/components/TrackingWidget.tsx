@@ -117,9 +117,10 @@ export default function TrackingWidget({
                 if (errorMsg) setErrorMsg("");
               }}
               placeholder="e.g. M5C-98421-US, M5C-74190-EU or custom AWB"
-              className="w-full pl-11 pr-4 py-3.5 text-base rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 text-slate-900 bg-slate-50/50 uppercase font-mono tracking-wide"
+              className="w-full !pl-11 pr-4 py-3.5 text-base rounded-2xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-600 text-slate-900 bg-slate-50/50 uppercase font-mono tracking-wide"
+              style={{ paddingLeft: "2.85rem" }}
             />
-            <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-4" />
+            <Search className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
 
           <button
