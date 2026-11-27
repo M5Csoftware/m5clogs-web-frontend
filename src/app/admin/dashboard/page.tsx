@@ -16,7 +16,7 @@ interface B2BLead {
 
 const INITIAL_LEADS: B2BLead[] = [
   {
-    id: "M5C-INQ-1048",
+    id: "M5C-1048",
     client: "Pooja Malhotra",
     company: "Nykaa Retail Ltd",
     category: "Skincare & Beauty",
@@ -26,7 +26,7 @@ const INITIAL_LEADS: B2BLead[] = [
     date: "27 Nov 2026",
   },
   {
-    id: "M5C-INQ-1047",
+    id: "M5C-1047",
     client: "Vikram Singhania",
     company: "Blinkit Commerce Pvt Ltd",
     category: "Food & Beverages",
@@ -36,7 +36,7 @@ const INITIAL_LEADS: B2BLead[] = [
     date: "26 Nov 2026",
   },
   {
-    id: "M5C-INQ-1046",
+    id: "M5C-1046",
     client: "Ananya Deshmukh",
     company: "Tira Beauty (Reliance Retail)",
     category: "Skincare & Beauty",
@@ -46,7 +46,7 @@ const INITIAL_LEADS: B2BLead[] = [
     date: "25 Nov 2026",
   },
   {
-    id: "M5C-INQ-1045",
+    id: "M5C-1045",
     client: "Rajesh Khandelwal",
     company: "Westside Lifestyle Stores",
     category: "Skincare & Beauty",
@@ -56,7 +56,7 @@ const INITIAL_LEADS: B2BLead[] = [
     date: "24 Nov 2026",
   },
   {
-    id: "M5C-INQ-1044",
+    id: "M5C-1044",
     client: "Sunita Nambiar",
     company: "Nature's Basket Gourmet",
     category: "Food & Beverages",
@@ -66,7 +66,7 @@ const INITIAL_LEADS: B2BLead[] = [
     date: "23 Nov 2026",
   },
   {
-    id: "M5C-INQ-1043",
+    id: "M5C-1043",
     client: "Harshavardhan Rao",
     company: "South India Cosmetics Dist.",
     category: "Skincare & Beauty",
@@ -94,34 +94,29 @@ export default function AdminDashboardPage() {
   const getStatusBadge = (status: B2BLead["status"]) => {
     switch (status) {
       case "Approved":
-        return "bg-emerald-50 text-emerald-700 border-emerald-200";
+        return "bg-emerald-50 text-emerald-800 border-emerald-200";
       case "Customs Clearance":
-        return "bg-blue-50 text-blue-700 border-blue-200";
+        return "bg-blue-50 text-blue-800 border-blue-200";
       case "Sample Dispatched":
-        return "bg-amber-50 text-amber-700 border-amber-200";
+        return "bg-amber-50 text-amber-800 border-amber-200";
       case "Quotation Sent":
-        return "bg-purple-50 text-purple-700 border-purple-200";
+        return "bg-purple-50 text-purple-800 border-purple-200";
       case "Under Review":
       default:
-        return "bg-orange-50 text-orange-700 border-orange-200";
+        return "bg-orange-50 text-orange-800 border-orange-200";
     }
   };
 
   return (
-    <div className="space-y-8">
-      {/* Top Welcome Stage */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-[var(--line)]">
+    <div className="space-y-10 sm:space-y-12 font-sans">
+      {/* Top Header Bar */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8 border-b border-[var(--line)]">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)]">
-              Operations Dashboard
-            </h1>
-            <span className="text-xs font-mono text-[var(--persimmon)] px-2.5 py-0.5 rounded-full bg-[var(--peach)]/40 border border-[var(--peach)] font-semibold">
-              Admin Console
-            </span>
-          </div>
-          <p className="text-sm text-[var(--muted)]">
-            Live overview of Korea ➔ India beauty &amp; food import consignments, CDSCO/FSSAI clearances, and B2B inquiries.
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink)]">
+            Dashboard
+          </h1>
+          <p className="text-sm text-[var(--muted)] mt-1 font-medium">
+            Live overview of import shipments, clearances, and B2B requests
           </p>
         </div>
 
@@ -129,199 +124,175 @@ export default function AdminDashboardPage() {
           <Link
             href="/rate-calculator"
             target="_blank"
-            className="px-4 py-2 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-xs font-semibold text-[var(--ink)] hover:border-[var(--persimmon)] hover:text-[var(--persimmon)] transition shadow-2xs"
+            className="px-4 py-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-xs font-bold text-[var(--ink)] hover:border-[var(--persimmon)] hover:text-[var(--persimmon)] transition shadow-2xs"
           >
             Rate Calculator ↗
           </Link>
           <Link
             href="/tracking"
             target="_blank"
-            className="px-4 py-2 rounded-xl bg-[var(--persimmon)] hover:bg-[var(--persimmon-d)] text-white text-xs font-bold transition shadow-xs"
+            className="px-4 py-2.5 rounded-xl bg-[var(--persimmon)] hover:bg-[var(--persimmon-d)] text-white text-xs font-bold transition shadow-xs"
           >
-            Live Container Tracking ↗
+            Track Consignments ↗
           </Link>
         </div>
       </div>
 
-      {/* 4 Metric Stats Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
+      {/* 4 Metric Stats Cards with Generous Padding */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {/* Card 1 */}
-        <div className="p-6 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs relative overflow-hidden group hover:border-[var(--persimmon)]/50 transition">
-          <div className="flex items-center justify-between text-xs text-[var(--muted)] font-mono mb-3">
-            <span>B2B LEADS &amp; INQUIRIES</span>
-            <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded">
-              +22.4% MoM
+        <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--persimmon)]/40 transition">
+          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+            <span>B2B Inquiries</span>
+            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">
+              +22% MoM
             </span>
           </div>
-          <div className="font-serif text-4xl font-bold text-[var(--ink)] mb-1">
+          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
             148
           </div>
-          <div className="text-xs text-[var(--muted)] flex items-center gap-1.5 font-sans">
-            <span className="w-2 h-2 rounded-full bg-[var(--persimmon)]" />
-            <span>84 K-Beauty • 64 K-Food</span>
+          <div className="text-xs text-[var(--muted)] font-medium">
+            84 Skincare • 64 Food &amp; Beverage
           </div>
         </div>
 
         {/* Card 2 */}
-        <div className="p-6 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs relative overflow-hidden group hover:border-[var(--jade)]/50 transition">
-          <div className="flex items-center justify-between text-xs text-[var(--muted)] font-mono mb-3">
-            <span>ACTIVE CONSIGNMENTS</span>
-            <span className="text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded">
+        <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--jade)]/40 transition">
+          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+            <span>Active Shipments</span>
+            <span className="text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-bold">
               In Transit
             </span>
           </div>
-          <div className="font-serif text-4xl font-bold text-[var(--ink)] mb-1">
-            32 <span className="text-lg font-sans font-normal text-[var(--muted)]">Batches</span>
+          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+            32
           </div>
-          <div className="text-xs text-[var(--muted)] flex items-center gap-1.5 font-sans">
-            <span className="w-2 h-2 rounded-full bg-[var(--jade)]" />
-            <span>18 Sea (Nhava Sheva) • 14 Air (Delhi)</span>
+          <div className="text-xs text-[var(--muted)] font-medium">
+            18 Sea (Nhava Sheva) • 14 Air (Delhi)
           </div>
         </div>
 
         {/* Card 3 */}
-        <div className="p-6 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs relative overflow-hidden group hover:border-[var(--gold)]/50 transition">
-          <div className="flex items-center justify-between text-xs text-[var(--muted)] font-mono mb-3">
-            <span>REGULATORY CLEARANCES</span>
-            <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded">
-              100% Valid
+        <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--gold)]/40 transition">
+          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+            <span>Approved SKUs</span>
+            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">
+              Active
             </span>
           </div>
-          <div className="font-serif text-4xl font-bold text-[var(--ink)] mb-1">
-            76 <span className="text-lg font-sans font-normal text-[var(--muted)]">SKUs</span>
+          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+            76
           </div>
-          <div className="text-xs text-[var(--muted)] flex items-center gap-1.5 font-sans">
-            <span className="w-2 h-2 rounded-full bg-[var(--gold)]" />
-            <span>52 CDSCO Form 43 • 24 FSSAI NOCs</span>
+          <div className="text-xs text-[var(--muted)] font-medium">
+            52 CDSCO Form 43 • 24 FSSAI NOCs
           </div>
         </div>
 
         {/* Card 4 */}
-        <div className="p-6 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs relative overflow-hidden group hover:border-[var(--ink)]/50 transition">
-          <div className="flex items-center justify-between text-xs text-[var(--muted)] font-mono mb-3">
-            <span>DISTRIBUTION NETWORK</span>
-            <span className="text-purple-700 font-bold bg-purple-50 px-2 py-0.5 rounded">
+        <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--ink)]/40 transition">
+          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+            <span>Retail Outlets</span>
+            <span className="text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-bold">
               18 States
             </span>
           </div>
-          <div className="font-serif text-4xl font-bold text-[var(--ink)] mb-1">
+          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
             1,280+
           </div>
-          <div className="text-xs text-[var(--muted)] flex items-center gap-1.5 font-sans">
-            <span className="w-2 h-2 rounded-full bg-[var(--ink)]" />
-            <span>Nykaa, Tira, Blinkit &amp; Regional Supermarkets</span>
+          <div className="text-xs text-[var(--muted)] font-medium">
+            Nykaa, Tira, Blinkit &amp; Wholesalers
           </div>
         </div>
       </div>
 
-      {/* Korea ➔ India Import Logistics Pipeline Status Rail */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-6">
+      {/* Shipment Transit Stages (Clean & Uncluttered) */}
+      <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
+        <div className="flex items-center justify-between gap-4 mb-8">
           <div>
-            <h2 className="font-serif text-xl sm:text-2xl font-bold text-[var(--ink)]">
-              Korea ➔ India Import Pipeline Status
+            <h2 className="text-lg sm:text-xl font-extrabold text-[var(--ink)] tracking-tight">
+              Shipment Transit Pipeline
             </h2>
-            <p className="text-xs text-[var(--muted)] mt-0.5">
-              Live milestones for ongoing sea and temperature-controlled air shipments
+            <p className="text-xs text-[var(--muted)] mt-1">
+              Active milestones across sea freight and air cargo
             </p>
           </div>
-          <span className="text-xs font-mono text-[var(--ok)] bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full w-fit">
+          <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
             ● Normal Port Operations
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
-          {/* Step 1 */}
-          <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
+            <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">
                 ✓
               </span>
-              <span className="text-xs font-bold text-[var(--ink)]">Incheon Hub</span>
+              <span className="text-sm font-bold text-[var(--ink)]">Incheon Hub</span>
             </div>
-            <p className="text-xs text-[var(--muted)] font-serif">
-              Brand dispatch &amp; export declaration completed.
-            </p>
-            <div className="text-[11px] font-mono text-[var(--ink)] mt-2 font-bold">
+            <div className="text-xs font-bold text-[var(--muted)]">
               12 Batches Cleared
             </div>
           </div>
 
-          {/* Step 2 */}
-          <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
+            <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">
                 ✓
               </span>
-              <span className="text-xs font-bold text-[var(--ink)]">Sea / Air Transit</span>
+              <span className="text-sm font-bold text-[var(--ink)]">Freight Transit</span>
             </div>
-            <p className="text-xs text-[var(--muted)] font-serif">
-              Freight in transit with real-time temperature logs.
-            </p>
-            <div className="text-[11px] font-mono text-[var(--ink)] mt-2 font-bold">
-              8 Vessels / Flights
+            <div className="text-xs font-bold text-[var(--muted)]">
+              8 Vessels &amp; Flights
             </div>
           </div>
 
-          {/* Step 3 */}
-          <div className="p-4 rounded-xl bg-[var(--hanji-2)] border border-[var(--persimmon)] shadow-xs">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="p-5 rounded-2xl bg-[var(--hanji-2)] border-2 border-[var(--persimmon)] shadow-xs">
+            <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-full bg-[var(--persimmon)] text-white text-xs font-bold flex items-center justify-center animate-pulse">
                 3
               </span>
-              <span className="text-xs font-bold text-[var(--persimmon)]">Indian Customs</span>
+              <span className="text-sm font-bold text-[var(--persimmon)]">Indian Customs</span>
             </div>
-            <p className="text-xs text-[var(--muted)] font-serif">
-              CDSCO / FSSAI sampling at Nhava Sheva &amp; IGI Delhi.
-            </p>
-            <div className="text-[11px] font-mono text-[var(--persimmon)] mt-2 font-bold">
-              6 Batches Under Clearance
+            <div className="text-xs font-bold text-[var(--persimmon)]">
+              6 In Clearance (JNPT/Delhi)
             </div>
           </div>
 
-          {/* Step 4 */}
-          <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
+            <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-full bg-[var(--line-strong)] text-[var(--ink)] text-xs font-bold flex items-center justify-center">
                 4
               </span>
-              <span className="text-xs font-bold text-[var(--ink)]">Central Warehouse</span>
+              <span className="text-sm font-bold text-[var(--ink)]">Central Warehouse</span>
             </div>
-            <p className="text-xs text-[var(--muted)] font-serif">
-              Gurgaon cold storage &amp; Indian regulatory MRP stickering.
-            </p>
-            <div className="text-[11px] font-mono text-[var(--muted)] mt-2 font-bold">
+            <div className="text-xs font-bold text-[var(--muted)]">
               4 Batches Ready
             </div>
           </div>
 
-          {/* Step 5 */}
-          <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-2">
+          <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
+            <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-full bg-[var(--line-strong)] text-[var(--ink)] text-xs font-bold flex items-center justify-center">
                 5
               </span>
-              <span className="text-xs font-bold text-[var(--ink)]">B2B Delivery</span>
+              <span className="text-sm font-bold text-[var(--ink)]">B2B Delivery</span>
             </div>
-            <p className="text-xs text-[var(--muted)] font-serif">
-              Dispatched to e-commerce hubs and retail store shelves.
-            </p>
-            <div className="text-[11px] font-mono text-[var(--muted)] mt-2 font-bold">
-              Pan-India Coverage
+            <div className="text-xs font-bold text-[var(--muted)]">
+              Pan-India Dispatch
             </div>
           </div>
         </div>
       </div>
 
-      {/* Recent B2B Inquiries & Quotation Requests Table */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+      {/* Recent B2B Inquiries Table with Generous Row Padding */}
+      <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
           <div>
-            <h2 className="font-serif text-2xl font-bold text-[var(--ink)]">
-              Recent Inquiries &amp; Quotation Requests
+            <h2 className="text-lg sm:text-xl font-extrabold text-[var(--ink)] tracking-tight">
+              Recent Inquiries
             </h2>
-            <p className="text-xs text-[var(--muted)] mt-0.5">
-              Verified retailer and wholesale requests received through the website
+            <p className="text-xs text-[var(--muted)] mt-1">
+              B2B wholesale and retail partner requests
             </p>
           </div>
 
@@ -330,13 +301,13 @@ export default function AdminDashboardPage() {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search buyer, company, ID..."
+                placeholder="Search company, buyer, ID..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="px-3.5 py-2 pl-9 rounded-xl border border-[var(--line)] bg-[var(--hanji)] text-xs text-[var(--ink)] placeholder:text-[var(--muted)] focus:bg-[var(--paper)] focus:border-[var(--persimmon)] focus:outline-none transition w-48 sm:w-64"
+                className="px-4 py-2.5 pl-10 rounded-xl border border-[var(--line)] bg-[var(--hanji)] text-xs text-[var(--ink)] placeholder:text-[var(--muted)] focus:bg-[var(--paper)] focus:border-[var(--persimmon)] focus:outline-none transition w-56 sm:w-72 font-medium"
               />
               <svg
-                className="w-4 h-4 text-[var(--muted)] absolute left-3 top-2.5"
+                className="w-4 h-4 text-[var(--muted)] absolute left-3.5 top-3"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -345,13 +316,13 @@ export default function AdminDashboardPage() {
               </svg>
             </div>
 
-            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-[var(--hanji)] border border-[var(--line)] text-xs">
+            <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--hanji)] border border-[var(--line)] text-xs">
               {["All", "Beauty", "Food"].map((tab) => (
                 <button
                   key={tab}
                   type="button"
                   onClick={() => setFilter(tab)}
-                  className={`px-3 py-1 rounded-lg font-semibold transition ${
+                  className={`px-3.5 py-1.5 rounded-lg font-bold transition cursor-pointer ${
                     filter === tab
                       ? "bg-[var(--paper)] text-[var(--persimmon)] shadow-2xs"
                       : "text-[var(--muted)] hover:text-[var(--ink)]"
@@ -364,64 +335,60 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Table */}
+        {/* Clean Table */}
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-[var(--line)] text-[var(--muted)] font-mono uppercase text-[11px]">
-                <th className="py-3 px-4 font-bold">Inquiry ID</th>
-                <th className="py-3 px-4 font-bold">Buyer &amp; Company</th>
-                <th className="py-3 px-4 font-bold">Category</th>
-                <th className="py-3 px-4 font-bold">Requirement</th>
-                <th className="py-3 px-4 font-bold">Est. Value</th>
-                <th className="py-3 px-4 font-bold">Status</th>
-                <th className="py-3 px-4 font-bold">Date</th>
+              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] uppercase text-[11px] font-bold tracking-wider">
+                <th className="py-4 px-5">ID</th>
+                <th className="py-4 px-5">Company &amp; Buyer</th>
+                <th className="py-4 px-5">Category</th>
+                <th className="py-4 px-5">Requirement</th>
+                <th className="py-4 px-5">Est. Value</th>
+                <th className="py-4 px-5">Status</th>
+                <th className="py-4 px-5">Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--line)]">
               {filteredLeads.map((lead) => (
                 <tr
                   key={lead.id}
-                  className="hover:bg-[var(--hanji)]/60 transition group"
+                  className="hover:bg-[var(--hanji)]/60 transition"
                 >
-                  <td className="py-4 px-4 font-mono font-bold text-[var(--ink)]">
+                  <td className="py-5 px-5 font-mono font-bold text-[var(--ink)]">
                     {lead.id}
                   </td>
-                  <td className="py-4 px-4">
-                    <div className="font-bold text-[var(--ink)]">{lead.company}</div>
-                    <div className="text-[11px] text-[var(--muted)] font-serif">
-                      {lead.client}
-                    </div>
+                  <td className="py-5 px-5">
+                    <div className="font-bold text-sm text-[var(--ink)]">{lead.company}</div>
+                    <div className="text-xs text-[var(--muted)] mt-0.5">{lead.client}</div>
                   </td>
-                  <td className="py-4 px-4">
-                    <span className="font-medium text-[var(--ink)]">
-                      {lead.category}
-                    </span>
+                  <td className="py-5 px-5 font-semibold text-[var(--ink)]">
+                    {lead.category}
                   </td>
-                  <td className="py-4 px-4 text-[var(--muted)] max-w-xs truncate">
+                  <td className="py-5 px-5 text-[var(--muted)] font-medium max-w-xs truncate">
                     {lead.volume}
                   </td>
-                  <td className="py-4 px-4 font-bold font-mono text-[var(--ink)]">
+                  <td className="py-5 px-5 font-bold font-mono text-sm text-[var(--ink)]">
                     {lead.value}
                   </td>
-                  <td className="py-4 px-4">
+                  <td className="py-5 px-5">
                     <span
-                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-[11px] font-semibold border ${getStatusBadge(
+                      className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold border ${getStatusBadge(
                         lead.status
                       )}`}
                     >
                       {lead.status}
                     </span>
                   </td>
-                  <td className="py-4 px-4 font-mono text-[var(--muted)] whitespace-nowrap">
+                  <td className="py-5 px-5 font-mono text-[var(--muted)] whitespace-nowrap">
                     {lead.date}
                   </td>
                 </tr>
               ))}
               {filteredLeads.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="py-8 text-center text-xs text-[var(--muted)]">
-                    No inquiries found matching your filter criteria.
+                  <td colSpan={7} className="py-12 text-center text-sm text-[var(--muted)]">
+                    No inquiries found.
                   </td>
                 </tr>
               )}
@@ -430,18 +397,15 @@ export default function AdminDashboardPage() {
         </div>
       </div>
 
-      {/* Two Column Section: Top Brands & Compliance Gateways */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Top In-Demand Korean Brands in India */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-          <h3 className="font-serif text-xl font-bold text-[var(--ink)] mb-1">
-            Top Korean Brands Distributed
+      {/* Two Column Section: Top Brands & Gateways */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Top Brands Distributed */}
+        <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
+          <h3 className="text-lg font-extrabold text-[var(--ink)] tracking-tight mb-6">
+            Top Distributed Brands
           </h3>
-          <p className="text-xs text-[var(--muted)] mb-5">
-            Key brand inventory moving through M5 Clogs distribution networks
-          </p>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {[
               { name: "Anua", type: "Heartleaf Skincare", demand: "High Demand", units: "24,000 / mo" },
               { name: "Samyang Buldak", type: "Spicy Ramyun & Sauces", demand: "Top Velocity", units: "48,000 / mo" },
@@ -452,14 +416,14 @@ export default function AdminDashboardPage() {
             ].map((b) => (
               <div
                 key={b.name}
-                className="flex items-center justify-between p-3.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] hover:border-[var(--persimmon)]/40 transition"
+                className="flex items-center justify-between p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] hover:border-[var(--persimmon)]/40 transition"
               >
                 <div>
-                  <div className="text-xs font-bold text-[var(--ink)]">{b.name}</div>
-                  <div className="text-[11px] text-[var(--muted)] font-serif">{b.type}</div>
+                  <div className="text-sm font-bold text-[var(--ink)]">{b.name}</div>
+                  <div className="text-xs text-[var(--muted)] mt-0.5">{b.type}</div>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                     {b.demand}
                   </span>
                   <div className="text-xs font-mono font-bold text-[var(--ink)] mt-1">
@@ -471,62 +435,52 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Regulatory & CDSCO Compliance Health */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs flex flex-col justify-between">
-          <div>
-            <h3 className="font-serif text-xl font-bold text-[var(--ink)] mb-1">
-              Regulatory Gateway Status
-            </h3>
-            <p className="text-xs text-[var(--muted)] mb-5">
-              Live status of Indian import statutory portals &amp; licenses
-            </p>
+        {/* Regulatory Gateways */}
+        <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
+          <h3 className="text-lg font-extrabold text-[var(--ink)] tracking-tight mb-6">
+            Regulatory Gateways
+          </h3>
 
-            <div className="space-y-3.5">
-              <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-[var(--ink)]">CDSCO SUGAM Portal</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">Online</span>
-                </div>
-                <p className="text-xs text-[var(--muted)]">
-                  Cosmetics Form 43 Registration Certificate active. 52 approved ingredient formulas.
-                </p>
+          <div className="space-y-4">
+            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+              <div>
+                <div className="text-sm font-bold text-[var(--ink)]">CDSCO SUGAM Portal</div>
+                <div className="text-xs text-[var(--muted)] mt-0.5">Form 43 Registration Active (52 Formulas)</div>
               </div>
-
-              <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-[var(--ink)]">FSSAI FoSCoS Import Gateway</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">Online</span>
-                </div>
-                <p className="text-xs text-[var(--muted)]">
-                  Food safety clearance system active. All packaging verified for Indian vegetarian/non-vegetarian green/brown dot labels.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-[var(--ink)]">ICEGATE Customs EDI Portal</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">Connected</span>
-                </div>
-                <p className="text-xs text-[var(--muted)]">
-                  Nhava Sheva (JNPT) &amp; IGI Delhi Air Cargo customs house agents synchronized.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)]">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-[var(--ink)]">Gurgaon Cold Chain Warehouse</span>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">18.4°C Optimal</span>
-                </div>
-                <p className="text-xs text-[var(--muted)]">
-                  24/7 temperature monitored warehouse for delicate skincare serums and Korean snacks.
-                </p>
-              </div>
+              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Online
+              </span>
             </div>
-          </div>
 
-          <div className="mt-6 pt-4 border-t border-[var(--line)] flex items-center justify-between text-xs text-[var(--muted)]">
-            <span>Last synchronized: Just now</span>
-            <span className="font-mono text-[var(--ink)] font-bold">M5 Clogs Ops v2.4</span>
+            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+              <div>
+                <div className="text-sm font-bold text-[var(--ink)]">FSSAI FoSCoS System</div>
+                <div className="text-xs text-[var(--muted)] mt-0.5">Food Import Clearance Active</div>
+              </div>
+              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Online
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+              <div>
+                <div className="text-sm font-bold text-[var(--ink)]">ICEGATE Customs EDI</div>
+                <div className="text-xs text-[var(--muted)] mt-0.5">JNPT Nhava Sheva &amp; IGI Delhi Air Cargo</div>
+              </div>
+              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Connected
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+              <div>
+                <div className="text-sm font-bold text-[var(--ink)]">Gurgaon Cold Chain Facility</div>
+                <div className="text-xs text-[var(--muted)] mt-0.5">Automated temperature control (18.4°C)</div>
+              </div>
+              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Optimal
+              </span>
+            </div>
           </div>
         </div>
       </div>
