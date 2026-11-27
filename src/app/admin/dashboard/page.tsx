@@ -313,10 +313,10 @@ export default function AdminDashboardPage() {
                 placeholder="Search company, buyer, ID..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="px-4 py-3 pl-11 rounded-xl border border-[var(--line)] bg-[var(--hanji)] text-sm text-[var(--ink)] placeholder:text-[var(--muted)] focus:bg-[var(--paper)] focus:border-[var(--persimmon)] focus:outline-none transition w-64 sm:w-80 font-medium"
+                className="pl-11 pr-4 py-3 rounded-xl border border-[var(--line)] bg-[var(--hanji)] text-[14px] text-[var(--ink)] placeholder:text-[var(--muted)] focus:bg-[var(--paper)] focus:border-[var(--persimmon)] focus:outline-none transition w-64 sm:w-80 font-medium"
               />
               <svg
-                className="w-5 h-5 text-[var(--muted)] absolute left-3.5 top-3.5"
+                className="w-5 h-5 text-[var(--muted)] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
