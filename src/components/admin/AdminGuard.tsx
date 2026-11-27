@@ -45,8 +45,8 @@ export default function AdminGuard({ children }: AdminGuardProps) {
         <p className="text-sm font-semibold tracking-wider text-[var(--ink)] uppercase">
           M5 Clogs Admin
         </p>
-        <p className="text-xs text-[var(--muted)] mt-1 font-serif italic">
-          인증 확인 중 • Verifying authentication...
+        <p className="text-xs text-[var(--muted)] mt-1 font-mono">
+          Verifying authentication...
         </p>
       </div>
     );

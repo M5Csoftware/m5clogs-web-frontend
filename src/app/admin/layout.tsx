@@ -93,11 +93,11 @@ export default function AdminLayout({
               </button>
             </div>
 
-            {/* Korean seal subtitle badge */}
+            {/* Operational badge */}
             <div className="mt-4 flex items-center gap-2 px-2.5 py-1.5 rounded-md bg-[var(--paper)]/80 border border-[var(--line)]">
               <span className="w-2 h-2 rounded-full bg-[var(--ok)] animate-pulse" />
-              <span className="text-xs font-serif text-[var(--ink)]">
-                한국 ➔ 인도 관리 시스템 (Operations)
+              <span className="text-xs font-semibold text-[var(--ink)]">
+                Import &amp; Distribution Operations
               </span>
             </div>
           </div>
@@ -133,7 +133,7 @@ export default function AdminLayout({
                 </svg>
                 <div className="flex flex-col">
                   <span className="leading-tight">Dashboard</span>
-                  <span className="text-[10px] text-[var(--muted)] font-serif">대시보드 개요</span>
+                  <span className="text-[10px] text-[var(--muted)] font-mono">Overview &amp; Metrics</span>
                 </div>
                 {isDashboard && (
                   <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[var(--persimmon)]" />
@@ -158,7 +158,7 @@ export default function AdminLayout({
                   </svg>
                   View Public Website
                 </span>
-                <span className="text-[10px] text-[var(--muted)] font-serif">웹사이트 바로가기</span>
+                <span className="text-[10px] text-[var(--muted)] font-mono">Live Site ↗</span>
               </Link>
             </div>
           </div>

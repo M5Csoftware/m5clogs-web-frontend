@@ -116,8 +116,8 @@ export default function AdminDashboardPage() {
             <h1 className="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-[var(--ink)]">
               Operations Dashboard
             </h1>
-            <span className="text-xs font-serif text-[var(--persimmon)] px-2.5 py-0.5 rounded-full bg-[var(--peach)]/40 border border-[var(--peach)]">
-              운영 대시보드
+            <span className="text-xs font-mono text-[var(--persimmon)] px-2.5 py-0.5 rounded-full bg-[var(--peach)]/40 border border-[var(--peach)] font-semibold">
+              Admin Console
             </span>
           </div>
           <p className="text-sm text-[var(--muted)]">
@@ -443,12 +443,12 @@ export default function AdminDashboardPage() {
 
           <div className="space-y-3">
             {[
-              { name: "Anua (아누아)", type: "Heartleaf Skincare", demand: "High Demand", units: "24,000 / mo" },
-              { name: "Samyang Buldak (불닭볶음면)", type: "Spicy Ramyun & Sauces", demand: "Top Velocity", units: "48,000 / mo" },
-              { name: "COSRX (코스알엑스)", type: "Snail Mucin Line", demand: "Stable", units: "18,500 / mo" },
-              { name: "Skin1004 (스킨1004)", type: "Centella Ampoules", demand: "Rising", units: "14,200 / mo" },
-              { name: "Beauty of Joseon (조선미녀)", type: "Sunscreen & Serums", demand: "High Demand", units: "21,000 / mo" },
-              { name: "Binggrae (빙그레)", type: "Flavored Milks & Drinks", demand: "FSSAI Cleared", units: "32,000 / mo" },
+              { name: "Anua", type: "Heartleaf Skincare", demand: "High Demand", units: "24,000 / mo" },
+              { name: "Samyang Buldak", type: "Spicy Ramyun & Sauces", demand: "Top Velocity", units: "48,000 / mo" },
+              { name: "COSRX", type: "Snail Mucin Line", demand: "Stable", units: "18,500 / mo" },
+              { name: "Skin1004", type: "Centella Ampoules", demand: "Rising", units: "14,200 / mo" },
+              { name: "Beauty of Joseon", type: "Sunscreen & Serums", demand: "High Demand", units: "21,000 / mo" },
+              { name: "Binggrae", type: "Flavored Milks & Drinks", demand: "FSSAI Cleared", units: "32,000 / mo" },
             ].map((b) => (
               <div
                 key={b.name}

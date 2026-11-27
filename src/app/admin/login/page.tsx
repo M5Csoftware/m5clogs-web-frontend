@@ -47,8 +47,8 @@ export default function AdminLoginPage() {
           {/* Left Brand & Mission Stage (5 cols on desktop) */}
           <div className="lg:col-span-5 bg-[var(--hanji-2)] p-8 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-[var(--line)] flex flex-col justify-between relative overflow-hidden">
             {/* Subtle background seal watermarks */}
-            <div className="absolute -bottom-10 -left-10 text-[180px] font-serif text-[var(--line)]/30 select-none pointer-events-none leading-none">
-              美
+            <div className="absolute -bottom-10 -left-10 text-[180px] font-sans font-black text-[var(--line)]/15 select-none pointer-events-none leading-none">
+              M5
             </div>
 
             <div className="relative z-1">
@@ -75,7 +75,7 @@ export default function AdminLoginPage() {
 
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--paper)] border border-[var(--line)] mb-6 text-xs text-[var(--ink)]">
                 <span className="w-2 h-2 rounded-full bg-[var(--ok)] animate-pulse" />
-                <span className="font-medium font-serif">한국 ➔ 인도 관리자 포털</span>
+                <span className="font-medium font-mono text-[11px]">Operations &amp; Logistics Portal</span>
               </div>
 
               <p className="text-sm text-[var(--muted)] leading-relaxed mb-6 font-sans">
