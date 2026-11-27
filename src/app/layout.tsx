@@ -29,6 +29,14 @@ export const metadata: Metadata = {
   title: "Korean Skincare & Food Importer and Distributor in India | M5 Clogs.in",
   description:
     "M5 Clogs.in imports Korean skincare, beauty, food and beverages into India and supplies retailers, wholesalers, distributors and e-commerce sellers.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/m5c-logo-noBg.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     type: "website",
     title: "M5 Clogs.in — Korea to India",
