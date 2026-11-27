@@ -348,7 +348,7 @@ export default function AdminDashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] text-[16px] font-bold">
+              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] text-[14px] font-bold">
                 <th className="py-4 px-3.5 whitespace-nowrap">ID</th>
                 <th className="py-4 px-3.5 whitespace-nowrap">Company &amp; Buyer</th>
                 <th className="py-4 px-3.5 whitespace-nowrap">Category</th>
@@ -364,39 +364,39 @@ export default function AdminDashboardPage() {
                   key={lead.id}
                   className="hover:bg-[var(--hanji)]/60 transition"
                 >
-                  <td className="py-4 px-3.5 font-mono font-bold text-[16px] text-[var(--ink)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-mono font-bold text-[14px] text-[var(--ink)] whitespace-nowrap">
                     {lead.id}
                   </td>
                   <td className="py-4 px-3.5 whitespace-nowrap">
-                    <div className="font-bold text-[16px] text-[var(--ink)]">{lead.company}</div>
-                    <div className="text-[16px] text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
+                    <div className="font-bold text-[14px] text-[var(--ink)]">{lead.company}</div>
+                    <div className="text-[14px] text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
                   </td>
-                  <td className="py-4 px-3.5 font-semibold text-[16px] text-[var(--ink)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-semibold text-[14px] text-[var(--ink)] whitespace-nowrap">
                     {lead.category}
                   </td>
-                  <td className="py-4 px-3.5 text-[16px] text-[var(--muted)] font-medium max-w-xs truncate">
+                  <td className="py-4 px-3.5 text-[14px] text-[var(--muted)] font-medium max-w-xs truncate">
                     {lead.volume}
                   </td>
-                  <td className="py-4 px-3.5 font-bold font-mono text-[16px] text-[var(--ink)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-bold font-mono text-[14px] text-[var(--ink)] whitespace-nowrap">
                     {lead.value}
                   </td>
                   <td className="py-4 px-3.5 whitespace-nowrap">
                     <span
-                      className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-[16px] font-bold border whitespace-nowrap ${getStatusBadge(
+                      className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-[14px] font-bold border whitespace-nowrap ${getStatusBadge(
                         lead.status
                       )}`}
                     >
                       {lead.status}
                     </span>
                   </td>
-                  <td className="py-4 px-3.5 font-mono text-[16px] text-[var(--muted)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-mono text-[14px] text-[var(--muted)] whitespace-nowrap">
                     {lead.date}
                   </td>
                 </tr>
               ))}
               {filteredLeads.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="py-14 text-center text-[16px] text-[var(--muted)] font-medium">
+                  <td colSpan={7} className="py-14 text-center text-[14px] text-[var(--muted)] font-medium">
                     No inquiries found.
                   </td>
                 </tr>
