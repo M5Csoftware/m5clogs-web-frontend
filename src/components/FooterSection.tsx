@@ -2,13 +2,19 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import KoreanLogo from "./KoreanLogo";
 import { Icon } from "./ArtSvg";
 import { POSTS, CONFIG } from "@/data/koreanLogisticsData";
 
 export default function FooterSection() {
+  const pathname = usePathname();
   const [newsEmail, setNewsEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+
+  if (pathname?.startsWith("/admin")) {
+    return null;
+  }
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
