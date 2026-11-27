@@ -708,7 +708,7 @@ export default function AdminLeadsPage() {
           FORM 3: NEWSLETTER LEADS TABLE
           ============================================================ */}
       {selectedForm === "newsletter" && (
-        <div className="bg-[var(--paper)] border border-[var(--line)] rounded-3xl shadow-xs overflow-hidden max-w-4xl">
+        <div className="bg-[var(--paper)] border border-[var(--line)] rounded-3xl shadow-xs overflow-hidden w-full">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
