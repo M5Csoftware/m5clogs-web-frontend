@@ -223,17 +223,21 @@ export default function HeaderNav() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex items-center justify-center w-10 h-10 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--ink)] hover:text-[var(--persimmon)] hover:border-[var(--persimmon)] hover:bg-[var(--hanji-2)] transition shadow-2xs cursor-pointer shrink-0"
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer shrink-0 shadow-xs ${
+                mobileMenuOpen
+                  ? "bg-[var(--persimmon)] text-white scale-105 shadow-md"
+                  : "bg-[var(--ink)] text-white hover:bg-[var(--persimmon)] hover:scale-105 active:scale-95"
+              }`}
               aria-label={mobileMenuOpen ? "Close menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
               title="All pages directory"
             >
               {mobileMenuOpen ? (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               )}
@@ -265,10 +269,10 @@ export default function HeaderNav() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-9 h-9 flex items-center justify-center rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:text-[var(--ink)] hover:border-[var(--ink)] transition cursor-pointer shadow-2xs"
+                className="w-9 h-9 flex items-center justify-center rounded-full bg-[var(--ink)] text-white hover:bg-[var(--persimmon)] transition cursor-pointer shadow-xs active:scale-95"
                 aria-label="Close menu"
               >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
