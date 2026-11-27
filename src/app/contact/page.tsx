@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Icon } from "@/components/ArtSvg";
 import { CONFIG } from "@/data/koreanLogisticsData";
+import { saveContactLead } from "@/lib/leadsStore";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -19,6 +20,15 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.name && formData.email && formData.message) {
+      saveContactLead({
+        name: formData.name,
+        company: formData.company,
+        email: formData.email,
+        phone: formData.phone,
+        topic: formData.topic,
+        message: formData.message,
+        source: "Contact Us Page",
+      });
       setSubmitted(true);
     }
   };

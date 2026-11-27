@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Icon } from "./ArtSvg";
 import { CONFIG } from "@/data/koreanLogisticsData";
+import { savePartnershipLead } from "@/lib/leadsStore";
 
 const ENQ_TYPES = [
   { value: "catalogue", label: "Wholesale catalogue" },
@@ -62,6 +63,17 @@ export default function EnquiryForm({
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
+      savePartnershipLead({
+        name,
+        company,
+        email,
+        phone,
+        bizType,
+        city,
+        categories,
+        details,
+        enquiryType,
+      });
       setSubmitted(true);
     }
   };
