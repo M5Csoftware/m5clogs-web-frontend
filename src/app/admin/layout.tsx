@@ -27,7 +27,7 @@ export default function AdminLayout({
   if (isLoginPage) {
     return (
       <AdminGuard>
-        <div className="min-h-screen bg-[var(--hanji)] text-[var(--ink)] flex flex-col justify-center font-sans antialiased">
+        <div className="admin-panel min-h-screen bg-[var(--hanji)] text-[var(--ink)] flex flex-col justify-center font-sans antialiased">
           {children}
         </div>
       </AdminGuard>
@@ -38,7 +38,7 @@ export default function AdminLayout({
 
   return (
     <AdminGuard>
-      <div className="min-h-screen flex bg-[var(--hanji)] text-[var(--ink)] font-sans antialiased">
+      <div className="admin-panel min-h-screen flex bg-[var(--hanji)] text-[var(--ink)] font-sans antialiased">
         {/* Mobile Sidebar Overlay */}
         {mobileSidebarOpen && (
           <div
@@ -82,7 +82,7 @@ export default function AdminLayout({
                       </span>
                     </div>
                     <span className="text-xs font-bold tracking-wider text-[var(--muted)] uppercase mt-1">
-                      Admin
+                      Admin Portal
                     </span>
                   </div>
                 </Link>
@@ -107,11 +107,11 @@ export default function AdminLayout({
                 Menu
               </div>
 
-              {/* Single Dashboard link as requested */}
+              {/* Single Dashboard link */}
               <Link
                 href="/admin/dashboard"
                 onClick={() => setMobileSidebarOpen(false)}
-                className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-sm font-bold transition-all ${
+                className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-base font-bold transition-all ${
                   isDashboard
                     ? "bg-[var(--paper)] text-[var(--persimmon)] shadow-xs border-l-4 border-[var(--persimmon)]"
                     : "text-[var(--ink)] hover:bg-[var(--paper)]/70 hover:text-[var(--persimmon)]"
@@ -139,7 +139,7 @@ export default function AdminLayout({
                   href="/"
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-semibold text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)] transition"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)] transition"
                 >
                   <svg className="w-4 h-4 text-[var(--muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -152,13 +152,13 @@ export default function AdminLayout({
 
           {/* User profile & Logout Footer */}
           <div className="p-5 border-t border-[var(--line)] bg-[var(--paper)]/50">
-            <div className="flex items-center justify-between gap-3 p-3 rounded-xl bg-[var(--paper)] border border-[var(--line)]">
+            <div className="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-[var(--paper)] border border-[var(--line)]">
               <div className="flex items-center gap-3 min-w-0">
                 <div className="w-10 h-10 rounded-full bg-[var(--jade)] text-white flex items-center justify-center font-bold text-sm shrink-0">
                   AD
                 </div>
                 <div className="min-w-0 flex flex-col">
-                  <span className="text-sm font-bold text-[var(--ink)] truncate">admin</span>
+                  <span className="text-base font-bold text-[var(--ink)] truncate">admin</span>
                   <span className="text-xs text-[var(--muted)] font-medium">Administrator</span>
                 </div>
               </div>
@@ -195,8 +195,8 @@ export default function AdminLayout({
                 </svg>
               </button>
 
-              {/* Breadcrumb */}
-              <div className="flex items-center gap-2 text-sm font-semibold text-[var(--muted)]">
+              {/* Breadcrumb with good readability */}
+              <div className="flex items-center gap-2 text-base font-semibold text-[var(--muted)]">
                 <span>Admin</span>
                 <span className="text-[var(--line-strong)]">/</span>
                 <span className="text-[var(--ink)] font-bold">Dashboard</span>
@@ -205,15 +205,15 @@ export default function AdminLayout({
 
             {/* Quick Status & Sign Out */}
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--paper)] border border-[var(--line)] text-xs text-[var(--ink)] font-medium">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--paper)] border border-[var(--line)] text-sm text-[var(--ink)] font-semibold">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>CDSCO &amp; FSSAI Active</span>
               </div>
 
               <button
                 type="button"
                 onClick={handleLogout}
-                className="text-xs font-bold px-3.5 py-2 rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:text-[var(--persimmon)] hover:border-[var(--persimmon)] transition cursor-pointer"
+                className="text-sm font-bold px-4 py-2 rounded-lg border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:text-[var(--persimmon)] hover:border-[var(--persimmon)] transition cursor-pointer"
               >
                 Sign out
               </button>

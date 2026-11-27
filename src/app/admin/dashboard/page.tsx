@@ -110,12 +110,12 @@ export default function AdminDashboardPage() {
   return (
     <div className="space-y-10 sm:space-y-12 font-sans">
       {/* Top Header Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-8 border-b border-[var(--line)]">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 pb-8 border-b border-[var(--line)]">
         <div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink)]">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--ink)]">
             Dashboard
           </h1>
-          <p className="text-sm text-[var(--muted)] mt-1 font-medium">
+          <p className="text-base sm:text-lg text-[var(--muted)] mt-2 font-medium">
             Live overview of import shipments, clearances, and B2B requests
           </p>
         </div>
@@ -124,82 +124,82 @@ export default function AdminDashboardPage() {
           <Link
             href="/rate-calculator"
             target="_blank"
-            className="px-4 py-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-xs font-bold text-[var(--ink)] hover:border-[var(--persimmon)] hover:text-[var(--persimmon)] transition shadow-2xs"
+            className="px-5 py-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-sm font-bold text-[var(--ink)] hover:border-[var(--persimmon)] hover:text-[var(--persimmon)] transition shadow-2xs"
           >
             Rate Calculator ↗
           </Link>
           <Link
             href="/tracking"
             target="_blank"
-            className="px-4 py-2.5 rounded-xl bg-[var(--persimmon)] hover:bg-[var(--persimmon-d)] text-white text-xs font-bold transition shadow-xs"
+            className="px-5 py-2.5 rounded-xl bg-[var(--persimmon)] hover:bg-[var(--persimmon-d)] text-white text-sm font-bold transition shadow-xs"
           >
             Track Consignments ↗
           </Link>
         </div>
       </div>
 
-      {/* 4 Metric Stats Cards with Generous Padding */}
+      {/* 4 Metric Stats Cards with High Readability */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
         {/* Card 1 */}
         <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--persimmon)]/40 transition">
-          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+          <div className="flex items-center justify-between text-sm font-bold tracking-wider text-[var(--muted)] uppercase mb-3">
             <span>B2B Inquiries</span>
-            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">
+            <span className="text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded text-xs font-bold">
               +22% MoM
             </span>
           </div>
-          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+          <div className="text-4xl sm:text-5xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
             148
           </div>
-          <div className="text-xs text-[var(--muted)] font-medium">
+          <div className="text-sm sm:text-base text-[var(--ink-2)] font-semibold">
             84 Skincare • 64 Food &amp; Beverage
           </div>
         </div>
 
         {/* Card 2 */}
         <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--jade)]/40 transition">
-          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+          <div className="flex items-center justify-between text-sm font-bold tracking-wider text-[var(--muted)] uppercase mb-3">
             <span>Active Shipments</span>
-            <span className="text-blue-700 bg-blue-50 px-2 py-0.5 rounded font-bold">
+            <span className="text-blue-700 bg-blue-50 px-2.5 py-1 rounded text-xs font-bold">
               In Transit
             </span>
           </div>
-          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+          <div className="text-4xl sm:text-5xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
             32
           </div>
-          <div className="text-xs text-[var(--muted)] font-medium">
+          <div className="text-sm sm:text-base text-[var(--ink-2)] font-semibold">
             18 Sea (Nhava Sheva) • 14 Air (Delhi)
           </div>
         </div>
 
         {/* Card 3 */}
         <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--gold)]/40 transition">
-          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+          <div className="flex items-center justify-between text-sm font-bold tracking-wider text-[var(--muted)] uppercase mb-3">
             <span>Approved SKUs</span>
-            <span className="text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold">
+            <span className="text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded text-xs font-bold">
               Active
             </span>
           </div>
-          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+          <div className="text-4xl sm:text-5xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
             76
           </div>
-          <div className="text-xs text-[var(--muted)] font-medium">
+          <div className="text-sm sm:text-base text-[var(--ink-2)] font-semibold">
             52 CDSCO Form 43 • 24 FSSAI NOCs
           </div>
         </div>
 
         {/* Card 4 */}
         <div className="p-7 sm:p-8 rounded-2xl bg-[var(--paper)] border border-[var(--line)] shadow-xs hover:border-[var(--ink)]/40 transition">
-          <div className="flex items-center justify-between text-xs font-bold tracking-wider text-[var(--muted)] uppercase mb-4">
+          <div className="flex items-center justify-between text-sm font-bold tracking-wider text-[var(--muted)] uppercase mb-3">
             <span>Retail Outlets</span>
-            <span className="text-purple-700 bg-purple-50 px-2 py-0.5 rounded font-bold">
+            <span className="text-purple-700 bg-purple-50 px-2.5 py-1 rounded text-xs font-bold">
               18 States
             </span>
           </div>
-          <div className="text-4xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
+          <div className="text-4xl sm:text-5xl font-extrabold text-[var(--ink)] tracking-tight mb-2">
             1,280+
           </div>
-          <div className="text-xs text-[var(--muted)] font-medium">
+          <div className="text-sm sm:text-base text-[var(--ink-2)] font-semibold">
             Nykaa, Tira, Blinkit &amp; Wholesalers
           </div>
         </div>
@@ -207,91 +207,91 @@ export default function AdminDashboardPage() {
 
       {/* Shipment Transit Stages (Clean & Uncluttered) */}
       <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-        <div className="flex items-center justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
           <div>
-            <h2 className="text-lg sm:text-xl font-extrabold text-[var(--ink)] tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight">
               Shipment Transit Pipeline
             </h2>
-            <p className="text-xs text-[var(--muted)] mt-1">
+            <p className="text-base text-[var(--muted)] mt-1.5 font-medium">
               Active milestones across sea freight and air cargo
             </p>
           </div>
-          <span className="text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+          <span className="text-sm font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full w-fit">
             ● Normal Port Operations
           </span>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3">
               <span className="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">
                 ✓
               </span>
-              <span className="text-sm font-bold text-[var(--ink)]">Incheon Hub</span>
+              <span className="text-base font-bold text-[var(--ink)]">Incheon Hub</span>
             </div>
-            <div className="text-xs font-bold text-[var(--muted)]">
+            <div className="text-sm sm:text-base font-semibold text-[var(--muted)]">
               12 Batches Cleared
             </div>
           </div>
 
           <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3">
               <span className="w-6 h-6 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">
                 ✓
               </span>
-              <span className="text-sm font-bold text-[var(--ink)]">Freight Transit</span>
+              <span className="text-base font-bold text-[var(--ink)]">Freight Transit</span>
             </div>
-            <div className="text-xs font-bold text-[var(--muted)]">
+            <div className="text-sm sm:text-base font-semibold text-[var(--muted)]">
               8 Vessels &amp; Flights
             </div>
           </div>
 
           <div className="p-5 rounded-2xl bg-[var(--hanji-2)] border-2 border-[var(--persimmon)] shadow-xs">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3">
               <span className="w-6 h-6 rounded-full bg-[var(--persimmon)] text-white text-xs font-bold flex items-center justify-center animate-pulse">
                 3
               </span>
-              <span className="text-sm font-bold text-[var(--persimmon)]">Indian Customs</span>
+              <span className="text-base font-bold text-[var(--persimmon)]">Indian Customs</span>
             </div>
-            <div className="text-xs font-bold text-[var(--persimmon)]">
+            <div className="text-sm sm:text-base font-bold text-[var(--persimmon)]">
               6 In Clearance (JNPT/Delhi)
             </div>
           </div>
 
           <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3">
               <span className="w-6 h-6 rounded-full bg-[var(--line-strong)] text-[var(--ink)] text-xs font-bold flex items-center justify-center">
                 4
               </span>
-              <span className="text-sm font-bold text-[var(--ink)]">Central Warehouse</span>
+              <span className="text-base font-bold text-[var(--ink)]">Central Warehouse</span>
             </div>
-            <div className="text-xs font-bold text-[var(--muted)]">
+            <div className="text-sm sm:text-base font-semibold text-[var(--muted)]">
               4 Batches Ready
             </div>
           </div>
 
           <div className="p-5 rounded-2xl bg-[var(--hanji)] border border-[var(--line)]">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex items-center gap-2.5 mb-3">
               <span className="w-6 h-6 rounded-full bg-[var(--line-strong)] text-[var(--ink)] text-xs font-bold flex items-center justify-center">
                 5
               </span>
-              <span className="text-sm font-bold text-[var(--ink)]">B2B Delivery</span>
+              <span className="text-base font-bold text-[var(--ink)]">B2B Delivery</span>
             </div>
-            <div className="text-xs font-bold text-[var(--muted)]">
+            <div className="text-sm sm:text-base font-semibold text-[var(--muted)]">
               Pan-India Dispatch
             </div>
           </div>
         </div>
       </div>
 
-      {/* Recent B2B Inquiries Table with Generous Row Padding */}
+      {/* Recent B2B Inquiries Table with High Contrast & Readability */}
       <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-8">
           <div>
-            <h2 className="text-lg sm:text-xl font-extrabold text-[var(--ink)] tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight">
               Recent Inquiries
             </h2>
-            <p className="text-xs text-[var(--muted)] mt-1">
+            <p className="text-base text-[var(--muted)] mt-1.5 font-medium">
               B2B wholesale and retail partner requests
             </p>
           </div>
@@ -304,10 +304,10 @@ export default function AdminDashboardPage() {
                 placeholder="Search company, buyer, ID..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="px-4 py-2.5 pl-10 rounded-xl border border-[var(--line)] bg-[var(--hanji)] text-xs text-[var(--ink)] placeholder:text-[var(--muted)] focus:bg-[var(--paper)] focus:border-[var(--persimmon)] focus:outline-none transition w-56 sm:w-72 font-medium"
+                className="px-4 py-3 pl-11 rounded-xl border border-[var(--line)] bg-[var(--hanji)] text-sm text-[var(--ink)] placeholder:text-[var(--muted)] focus:bg-[var(--paper)] focus:border-[var(--persimmon)] focus:outline-none transition w-64 sm:w-80 font-medium"
               />
               <svg
-                className="w-4 h-4 text-[var(--muted)] absolute left-3.5 top-3"
+                className="w-5 h-5 text-[var(--muted)] absolute left-3.5 top-3.5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -316,13 +316,13 @@ export default function AdminDashboardPage() {
               </svg>
             </div>
 
-            <div className="flex items-center gap-1 p-1 rounded-xl bg-[var(--hanji)] border border-[var(--line)] text-xs">
+            <div className="flex items-center gap-1.5 p-1.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] text-sm">
               {["All", "Beauty", "Food"].map((tab) => (
                 <button
                   key={tab}
                   type="button"
                   onClick={() => setFilter(tab)}
-                  className={`px-3.5 py-1.5 rounded-lg font-bold transition cursor-pointer ${
+                  className={`px-4 py-2 rounded-lg font-bold transition cursor-pointer ${
                     filter === tab
                       ? "bg-[var(--paper)] text-[var(--persimmon)] shadow-2xs"
                       : "text-[var(--muted)] hover:text-[var(--ink)]"
@@ -335,18 +335,18 @@ export default function AdminDashboardPage() {
           </div>
         </div>
 
-        {/* Clean Table */}
+        {/* Clean, Readable Table */}
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs border-collapse">
+          <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] uppercase text-[11px] font-bold tracking-wider">
-                <th className="py-4 px-5">ID</th>
-                <th className="py-4 px-5">Company &amp; Buyer</th>
-                <th className="py-4 px-5">Category</th>
-                <th className="py-4 px-5">Requirement</th>
-                <th className="py-4 px-5">Est. Value</th>
-                <th className="py-4 px-5">Status</th>
-                <th className="py-4 px-5">Date</th>
+              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] uppercase text-xs sm:text-sm font-bold tracking-wider">
+                <th className="py-4.5 px-6">ID</th>
+                <th className="py-4.5 px-6">Company &amp; Buyer</th>
+                <th className="py-4.5 px-6">Category</th>
+                <th className="py-4.5 px-6">Requirement</th>
+                <th className="py-4.5 px-6">Est. Value</th>
+                <th className="py-4.5 px-6">Status</th>
+                <th className="py-4.5 px-6">Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--line)]">
@@ -355,39 +355,39 @@ export default function AdminDashboardPage() {
                   key={lead.id}
                   className="hover:bg-[var(--hanji)]/60 transition"
                 >
-                  <td className="py-5 px-5 font-mono font-bold text-[var(--ink)]">
+                  <td className="py-5 px-6 font-mono font-bold text-sm text-[var(--ink)]">
                     {lead.id}
                   </td>
-                  <td className="py-5 px-5">
-                    <div className="font-bold text-sm text-[var(--ink)]">{lead.company}</div>
-                    <div className="text-xs text-[var(--muted)] mt-0.5">{lead.client}</div>
+                  <td className="py-5 px-6">
+                    <div className="font-bold text-base text-[var(--ink)]">{lead.company}</div>
+                    <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
                   </td>
-                  <td className="py-5 px-5 font-semibold text-[var(--ink)]">
+                  <td className="py-5 px-6 font-semibold text-sm sm:text-base text-[var(--ink)]">
                     {lead.category}
                   </td>
-                  <td className="py-5 px-5 text-[var(--muted)] font-medium max-w-xs truncate">
+                  <td className="py-5 px-6 text-sm sm:text-base text-[var(--muted)] font-medium max-w-xs truncate">
                     {lead.volume}
                   </td>
-                  <td className="py-5 px-5 font-bold font-mono text-sm text-[var(--ink)]">
+                  <td className="py-5 px-6 font-bold font-mono text-base text-[var(--ink)]">
                     {lead.value}
                   </td>
-                  <td className="py-5 px-5">
+                  <td className="py-5 px-6">
                     <span
-                      className={`inline-flex items-center px-3 py-1 rounded-full text-[11px] font-bold border ${getStatusBadge(
+                      className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold border ${getStatusBadge(
                         lead.status
                       )}`}
                     >
                       {lead.status}
                     </span>
                   </td>
-                  <td className="py-5 px-5 font-mono text-[var(--muted)] whitespace-nowrap">
+                  <td className="py-5 px-6 font-mono text-sm text-[var(--muted)] whitespace-nowrap">
                     {lead.date}
                   </td>
                 </tr>
               ))}
               {filteredLeads.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="py-12 text-center text-sm text-[var(--muted)]">
+                  <td colSpan={7} className="py-14 text-center text-base text-[var(--muted)] font-medium">
                     No inquiries found.
                   </td>
                 </tr>
@@ -401,7 +401,7 @@ export default function AdminDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Top Brands Distributed */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-          <h3 className="text-lg font-extrabold text-[var(--ink)] tracking-tight mb-6">
+          <h3 className="text-xl font-extrabold text-[var(--ink)] tracking-tight mb-6">
             Top Distributed Brands
           </h3>
 
@@ -416,17 +416,17 @@ export default function AdminDashboardPage() {
             ].map((b) => (
               <div
                 key={b.name}
-                className="flex items-center justify-between p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] hover:border-[var(--persimmon)]/40 transition"
+                className="flex items-center justify-between p-4.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] hover:border-[var(--persimmon)]/40 transition"
               >
                 <div>
-                  <div className="text-sm font-bold text-[var(--ink)]">{b.name}</div>
-                  <div className="text-xs text-[var(--muted)] mt-0.5">{b.type}</div>
+                  <div className="text-base font-bold text-[var(--ink)]">{b.name}</div>
+                  <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">{b.type}</div>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                     {b.demand}
                   </span>
-                  <div className="text-xs font-mono font-bold text-[var(--ink)] mt-1">
+                  <div className="text-sm sm:text-base font-mono font-bold text-[var(--ink)] mt-1">
                     {b.units}
                   </div>
                 </div>
@@ -437,47 +437,47 @@ export default function AdminDashboardPage() {
 
         {/* Regulatory Gateways */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-          <h3 className="text-lg font-extrabold text-[var(--ink)] tracking-tight mb-6">
+          <h3 className="text-xl font-extrabold text-[var(--ink)] tracking-tight mb-6">
             Regulatory Gateways
           </h3>
 
           <div className="space-y-4">
-            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+            <div className="p-4.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
               <div>
-                <div className="text-sm font-bold text-[var(--ink)]">CDSCO SUGAM Portal</div>
-                <div className="text-xs text-[var(--muted)] mt-0.5">Form 43 Registration Active (52 Formulas)</div>
+                <div className="text-base font-bold text-[var(--ink)]">CDSCO SUGAM Portal</div>
+                <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">Form 43 Registration Active (52 Formulas)</div>
               </div>
-              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+              <span className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                 Online
               </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+            <div className="p-4.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
               <div>
-                <div className="text-sm font-bold text-[var(--ink)]">FSSAI FoSCoS System</div>
-                <div className="text-xs text-[var(--muted)] mt-0.5">Food Import Clearance Active</div>
+                <div className="text-base font-bold text-[var(--ink)]">FSSAI FoSCoS System</div>
+                <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">Food Import Clearance Active</div>
               </div>
-              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+              <span className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                 Online
               </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+            <div className="p-4.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
               <div>
-                <div className="text-sm font-bold text-[var(--ink)]">ICEGATE Customs EDI</div>
-                <div className="text-xs text-[var(--muted)] mt-0.5">JNPT Nhava Sheva &amp; IGI Delhi Air Cargo</div>
+                <div className="text-base font-bold text-[var(--ink)]">ICEGATE Customs EDI</div>
+                <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">JNPT Nhava Sheva &amp; IGI Delhi Air Cargo</div>
               </div>
-              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+              <span className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                 Connected
               </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
+            <div className="p-4.5 rounded-xl bg-[var(--hanji)] border border-[var(--line)] flex items-center justify-between">
               <div>
-                <div className="text-sm font-bold text-[var(--ink)]">Gurgaon Cold Chain Facility</div>
-                <div className="text-xs text-[var(--muted)] mt-0.5">Automated temperature control (18.4°C)</div>
+                <div className="text-base font-bold text-[var(--ink)]">Gurgaon Cold Chain Facility</div>
+                <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">Automated temperature control (18.4°C)</div>
               </div>
-              <span className="text-xs font-bold px-2.5 py-1 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+              <span className="text-xs sm:text-sm font-bold px-3 py-1.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
                 Optimal
               </span>
             </div>
