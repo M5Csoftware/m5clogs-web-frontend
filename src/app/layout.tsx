@@ -26,7 +26,8 @@ const notoSerifKr = Noto_Serif_KR({
 });
 
 export const metadata: Metadata = {
-  title: "Korean Skincare & Food Importer and Distributor in India | M5 Clogs.in",
+  title:
+    "Korean Skincare & Food Importer and Distributor in India | M5 Clogs.in",
   description:
     "M5 Clogs.in imports Korean skincare, beauty, food and beverages into India and supplies retailers, wholesalers, distributors and e-commerce sellers.",
   icons: {
@@ -40,7 +41,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     title: "M5 Clogs.in — Korea to India",
-    description: "Korean skincare, beauty, food and beverages, sourced in Korea and distributed across India.",
+    description:
+      "Korean skincare, beauty, food and beverages, sourced in Korea and distributed across India.",
     url: "https://www.m5clogs.in/",
   },
 };
