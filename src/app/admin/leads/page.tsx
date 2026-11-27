@@ -484,28 +484,28 @@ export default function AdminLeadsPage() {
                       </span>
                     </td>
                     <td className="py-5 px-6 text-right whitespace-nowrap" onClick={(e) => e.stopPropagation()}>
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-3">
                         {/* Eye Icon Button (Read) */}
-                        <div className="relative group/tip inline-flex">
+                        <div className="relative group/tip inline-flex items-center justify-center">
                           <button
                             type="button"
                             onClick={() => setActiveContactLead(lead)}
-                            title="Read"
                             aria-label="Read"
-                            className="p-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:border-[var(--persimmon)] hover:text-[var(--persimmon)] hover:bg-[var(--hanji)] transition cursor-pointer shadow-2xs"
+                            className="text-slate-500 hover:text-[var(--persimmon)] transition-all duration-200 transform hover:scale-125 active:scale-95 cursor-pointer p-1"
                           >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                           </button>
-                          <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-[var(--ink)] text-white text-[11px] font-bold opacity-0 group-hover/tip:opacity-100 transition-opacity shadow-sm whitespace-nowrap z-20">
+                          <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 rounded bg-slate-900 text-white text-[11px] font-semibold tracking-wide opacity-0 group-hover/tip:opacity-100 group-hover/tip:-translate-y-0.5 transition-all duration-150 shadow-md whitespace-nowrap z-30">
                             Read
-                          </span>
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                          </div>
                         </div>
 
                         {/* Trash Icon Button (Remove) */}
-                        <div className="relative group/tip inline-flex">
+                        <div className="relative group/tip inline-flex items-center justify-center">
                           <button
                             type="button"
                             onClick={() => {
@@ -514,17 +514,17 @@ export default function AdminLeadsPage() {
                                 refreshLeads();
                               }
                             }}
-                            title="Remove"
                             aria-label="Remove"
-                            className="p-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:border-rose-300 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer shadow-2xs"
+                            className="text-slate-500 hover:text-rose-600 transition-all duration-200 transform hover:scale-125 active:scale-95 cursor-pointer p-1"
                           >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>
-                          <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-rose-700 text-white text-[11px] font-bold opacity-0 group-hover/tip:opacity-100 transition-opacity shadow-sm whitespace-nowrap z-20">
+                          <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 rounded bg-slate-900 text-white text-[11px] font-semibold tracking-wide opacity-0 group-hover/tip:opacity-100 group-hover/tip:-translate-y-0.5 transition-all duration-150 shadow-md whitespace-nowrap z-30">
                             Remove
-                          </span>
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -607,28 +607,28 @@ export default function AdminLeadsPage() {
                       </span>
                     </td>
                     <td className="py-5 px-6 text-right whitespace-nowrap" onClick={(e) => e.stopPropagation()}>
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-3">
                         {/* Eye Icon Button (Read) */}
-                        <div className="relative group/tip inline-flex">
+                        <div className="relative group/tip inline-flex items-center justify-center">
                           <button
                             type="button"
                             onClick={() => setActivePartnershipLead(lead)}
-                            title="Read"
                             aria-label="Read"
-                            className="p-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:border-[var(--jade)] hover:text-[var(--jade)] hover:bg-[var(--hanji)] transition cursor-pointer shadow-2xs"
+                            className="text-slate-500 hover:text-[var(--persimmon)] transition-all duration-200 transform hover:scale-125 active:scale-95 cursor-pointer p-1"
                           >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                               <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                           </button>
-                          <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-[var(--ink)] text-white text-[11px] font-bold opacity-0 group-hover/tip:opacity-100 transition-opacity shadow-sm whitespace-nowrap z-20">
+                          <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 rounded bg-slate-900 text-white text-[11px] font-semibold tracking-wide opacity-0 group-hover/tip:opacity-100 group-hover/tip:-translate-y-0.5 transition-all duration-150 shadow-md whitespace-nowrap z-30">
                             Read
-                          </span>
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                          </div>
                         </div>
 
                         {/* Trash Icon Button (Remove) */}
-                        <div className="relative group/tip inline-flex">
+                        <div className="relative group/tip inline-flex items-center justify-center">
                           <button
                             type="button"
                             onClick={() => {
@@ -637,17 +637,17 @@ export default function AdminLeadsPage() {
                                 refreshLeads();
                               }
                             }}
-                            title="Remove"
                             aria-label="Remove"
-                            className="p-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:border-rose-300 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer shadow-2xs"
+                            className="text-slate-500 hover:text-rose-600 transition-all duration-200 transform hover:scale-125 active:scale-95 cursor-pointer p-1"
                           >
-                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                             </svg>
                           </button>
-                          <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-rose-700 text-white text-[11px] font-bold opacity-0 group-hover/tip:opacity-100 transition-opacity shadow-sm whitespace-nowrap z-20">
+                          <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 rounded bg-slate-900 text-white text-[11px] font-semibold tracking-wide opacity-0 group-hover/tip:opacity-100 group-hover/tip:-translate-y-0.5 transition-all duration-150 shadow-md whitespace-nowrap z-30">
                             Remove
-                          </span>
+                            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                          </div>
                         </div>
                       </div>
                     </td>
@@ -704,7 +704,7 @@ export default function AdminLeadsPage() {
                       </span>
                     </td>
                     <td className="py-5 px-6 text-right">
-                      <div className="relative group/tip inline-flex">
+                      <div className="relative group/tip inline-flex items-center justify-center">
                         <button
                           type="button"
                           onClick={() => {
@@ -713,17 +713,17 @@ export default function AdminLeadsPage() {
                               refreshLeads();
                             }
                           }}
-                          title="Remove"
                           aria-label="Remove"
-                          className="p-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] text-[var(--muted)] hover:border-rose-300 hover:text-rose-600 hover:bg-rose-50 transition cursor-pointer shadow-2xs"
+                          className="text-slate-500 hover:text-rose-600 transition-all duration-200 transform hover:scale-125 active:scale-95 cursor-pointer p-1"
                         >
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                           </svg>
                         </button>
-                        <span className="pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded bg-rose-700 text-white text-[11px] font-bold opacity-0 group-hover/tip:opacity-100 transition-opacity shadow-sm whitespace-nowrap z-20">
+                        <div className="pointer-events-none absolute bottom-full left-1/2 -translate-x-1/2 mb-1.5 px-2 py-0.5 rounded bg-slate-900 text-white text-[11px] font-semibold tracking-wide opacity-0 group-hover/tip:opacity-100 group-hover/tip:-translate-y-0.5 transition-all duration-150 shadow-md whitespace-nowrap z-30">
                           Remove
-                        </span>
+                          <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900" />
+                        </div>
                       </div>
                     </td>
                   </tr>
