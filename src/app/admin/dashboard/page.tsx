@@ -112,7 +112,10 @@ export default function AdminDashboardPage() {
       {/* Top Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 pb-8 border-b border-[var(--line)]">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[var(--ink)]">
+          <h1
+            className="admin-heading text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink)]"
+            style={{ fontFamily: 'var(--font-sans), "Manrope", system-ui, -apple-system, sans-serif' }}
+          >
             Dashboard
           </h1>
           <p className="text-base sm:text-lg text-[var(--muted)] mt-2 font-medium">
@@ -209,7 +212,10 @@ export default function AdminDashboardPage() {
       <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-8">
           <div>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight">
+            <h2
+              className="admin-heading text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight"
+              style={{ fontFamily: 'var(--font-sans), "Manrope", system-ui, -apple-system, sans-serif' }}
+            >
               Shipment Transit Pipeline
             </h2>
             <p className="text-base text-[var(--muted)] mt-1.5 font-medium">
@@ -288,7 +294,10 @@ export default function AdminDashboardPage() {
       <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-5 mb-8">
           <div>
-            <h2 className="text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight">
+            <h2
+              className="admin-heading text-xl sm:text-2xl font-extrabold text-[var(--ink)] tracking-tight"
+              style={{ fontFamily: 'var(--font-sans), "Manrope", system-ui, -apple-system, sans-serif' }}
+            >
               Recent Inquiries
             </h2>
             <p className="text-base text-[var(--muted)] mt-1.5 font-medium">
@@ -401,7 +410,10 @@ export default function AdminDashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Top Brands Distributed */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-          <h3 className="text-xl font-extrabold text-[var(--ink)] tracking-tight mb-6">
+          <h3
+            className="admin-heading text-xl font-extrabold text-[var(--ink)] tracking-tight mb-6"
+            style={{ fontFamily: 'var(--font-sans), "Manrope", system-ui, -apple-system, sans-serif' }}
+          >
             Top Distributed Brands
           </h3>
 
@@ -437,7 +449,10 @@ export default function AdminDashboardPage() {
 
         {/* Regulatory Gateways */}
         <div className="p-8 sm:p-10 rounded-3xl bg-[var(--paper)] border border-[var(--line)] shadow-xs">
-          <h3 className="text-xl font-extrabold text-[var(--ink)] tracking-tight mb-6">
+          <h3
+            className="admin-heading text-xl font-extrabold text-[var(--ink)] tracking-tight mb-6"
+            style={{ fontFamily: 'var(--font-sans), "Manrope", system-ui, -apple-system, sans-serif' }}
+          >
             Regulatory Gateways
           </h3>
 

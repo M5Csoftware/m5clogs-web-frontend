@@ -81,17 +81,17 @@ h1, h2, h3, h4 {
   font-weight: 400;
 }
 
-body:not(.admin-panel) h1,
-body:not(.admin-panel) h2 {
+body:not(:has(.admin-panel)) h1,
+body:not(:has(.admin-panel)) h2 {
   font-family: var(--serif);
   letter-spacing: -0.015em;
 }
 
-body:not(.admin-panel) h1 {
+body:not(:has(.admin-panel)) h1 {
   font-size: clamp(3.2rem, 5.5vw, 6.2rem);
 }
 
-body:not(.admin-panel) h2 {
+body:not(:has(.admin-panel)) h2 {
   font-size: clamp(2.4rem, 4.2vw, 4.5rem);
 }
 
@@ -100,7 +100,7 @@ body:not(.admin-panel) h2 {
    ============================================================ */
 .admin-panel,
 .admin-panel * {
-  font-family: var(--sans) !important;
+  font-family: var(--font-sans), "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }
 
 .admin-panel h1,
@@ -108,8 +108,9 @@ body:not(.admin-panel) h2 {
 .admin-panel h3,
 .admin-panel h4,
 .admin-panel h5,
-.admin-panel h6 {
-  font-family: var(--sans) !important;
+.admin-panel h6,
+.admin-heading {
+  font-family: var(--font-sans), "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
   font-weight: 800 !important;
   letter-spacing: -0.025em !important;
   line-height: 1.25 !important;
