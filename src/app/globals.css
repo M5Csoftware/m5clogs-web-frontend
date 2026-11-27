@@ -43,9 +43,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, svg {
+img {
   display: block;
   max-width: 100%;
+}
+
+svg {
+  display: block;
+}
+
+/* Protect admin panel SVG icons from being squished by table/flex layouts */
+.admin-panel svg {
+  min-width: 1em;
+  min-height: 1em;
+  flex-shrink: 0;
 }
 
 a {
