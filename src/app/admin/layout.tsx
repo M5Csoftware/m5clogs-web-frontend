@@ -36,6 +36,7 @@ export default function AdminLayout({
 
   const isDashboard = pathname === "/admin/dashboard" || pathname === "/admin";
   const isLeads = pathname?.startsWith("/admin/leads");
+  const isSettings = pathname?.startsWith("/admin/settings");
 
   return (
     <AdminGuard>
@@ -160,20 +161,36 @@ export default function AdminLayout({
                 <span>Form Leads</span>
               </Link>
 
-              {/* Public Website Link */}
-              <div className="pt-6">
-                <Link
-                  href="/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-semibold text-[var(--muted)] hover:text-[var(--ink)] hover:bg-[var(--paper)] transition"
+              {/* Settings Link */}
+              <Link
+                href="/admin/settings"
+                onClick={() => setMobileSidebarOpen(false)}
+                className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-base font-bold transition-all ${
+                  isSettings
+                    ? "bg-[var(--paper)] text-[var(--persimmon)] shadow-xs border-l-4 border-[var(--persimmon)]"
+                    : "text-[var(--ink)] hover:bg-[var(--paper)]/70 hover:text-[var(--persimmon)]"
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 shrink-0 ${isSettings ? "text-[var(--persimmon)]" : "text-[var(--muted)]"}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
                 >
-                  <svg className="w-4 h-4 text-[var(--muted)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                  <span>View Public Website ↗</span>
-                </Link>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <span>Settings</span>
+              </Link>
             </div>
           </div>
 
@@ -227,7 +244,7 @@ export default function AdminLayout({
                 <span>Admin</span>
                 <span className="text-[var(--line-strong)]">/</span>
                 <span className="text-[var(--ink)] font-bold">
-                  {isLeads ? "Form Leads" : "Dashboard"}
+                  {isSettings ? "Settings" : isLeads ? "Form Leads" : "Dashboard"}
                 </span>
               </div>
             </div>
