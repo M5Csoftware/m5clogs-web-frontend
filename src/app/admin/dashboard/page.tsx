@@ -348,14 +348,14 @@ export default function AdminDashboardPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] uppercase text-xs sm:text-sm font-bold tracking-wider">
-                <th className="py-4.5 px-6">ID</th>
-                <th className="py-4.5 px-6">Company &amp; Buyer</th>
-                <th className="py-4.5 px-6">Category</th>
-                <th className="py-4.5 px-6">Requirement</th>
-                <th className="py-4.5 px-6">Est. Value</th>
-                <th className="py-4.5 px-6">Status</th>
-                <th className="py-4.5 px-6">Date</th>
+              <tr className="border-b-2 border-[var(--line)] text-[var(--muted)] text-[16px] font-bold">
+                <th className="py-4 px-3.5 whitespace-nowrap">ID</th>
+                <th className="py-4 px-3.5 whitespace-nowrap">Company &amp; Buyer</th>
+                <th className="py-4 px-3.5 whitespace-nowrap">Category</th>
+                <th className="py-4 px-3.5">Requirement</th>
+                <th className="py-4 px-3.5 whitespace-nowrap">Est. Value</th>
+                <th className="py-4 px-3.5 whitespace-nowrap">Status</th>
+                <th className="py-4 px-3.5 whitespace-nowrap">Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[var(--line)]">
@@ -364,39 +364,39 @@ export default function AdminDashboardPage() {
                   key={lead.id}
                   className="hover:bg-[var(--hanji)]/60 transition"
                 >
-                  <td className="py-5 px-6 font-mono font-bold text-sm text-[var(--ink)]">
+                  <td className="py-4 px-3.5 font-mono font-bold text-[16px] text-[var(--ink)] whitespace-nowrap">
                     {lead.id}
                   </td>
-                  <td className="py-5 px-6">
-                    <div className="font-bold text-base text-[var(--ink)]">{lead.company}</div>
-                    <div className="text-sm text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
+                  <td className="py-4 px-3.5 whitespace-nowrap">
+                    <div className="font-bold text-[16px] text-[var(--ink)]">{lead.company}</div>
+                    <div className="text-[16px] text-[var(--muted)] mt-0.5 font-medium">{lead.client}</div>
                   </td>
-                  <td className="py-5 px-6 font-semibold text-sm sm:text-base text-[var(--ink)]">
+                  <td className="py-4 px-3.5 font-semibold text-[16px] text-[var(--ink)] whitespace-nowrap">
                     {lead.category}
                   </td>
-                  <td className="py-5 px-6 text-sm sm:text-base text-[var(--muted)] font-medium max-w-xs truncate">
+                  <td className="py-4 px-3.5 text-[16px] text-[var(--muted)] font-medium max-w-xs truncate">
                     {lead.volume}
                   </td>
-                  <td className="py-5 px-6 font-bold font-mono text-base text-[var(--ink)]">
+                  <td className="py-4 px-3.5 font-bold font-mono text-[16px] text-[var(--ink)] whitespace-nowrap">
                     {lead.value}
                   </td>
-                  <td className="py-5 px-6">
+                  <td className="py-4 px-3.5 whitespace-nowrap">
                     <span
-                      className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold border ${getStatusBadge(
+                      className={`inline-flex items-center px-3.5 py-1.5 rounded-full text-[16px] font-bold border whitespace-nowrap ${getStatusBadge(
                         lead.status
                       )}`}
                     >
                       {lead.status}
                     </span>
                   </td>
-                  <td className="py-5 px-6 font-mono text-sm text-[var(--muted)] whitespace-nowrap">
+                  <td className="py-4 px-3.5 font-mono text-[16px] text-[var(--muted)] whitespace-nowrap">
                     {lead.date}
                   </td>
                 </tr>
               ))}
               {filteredLeads.length === 0 && (
                 <tr>
-                  <td colSpan={7} className="py-14 text-center text-base text-[var(--muted)] font-medium">
+                  <td colSpan={7} className="py-14 text-center text-[16px] text-[var(--muted)] font-medium">
                     No inquiries found.
                   </td>
                 </tr>
