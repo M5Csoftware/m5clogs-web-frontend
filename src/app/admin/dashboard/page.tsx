@@ -141,6 +141,13 @@ export default function AdminDashboardPage() {
 
         <div className="flex items-center gap-3 shrink-0">
           <Link
+            href="/admin/products"
+            className="px-4 py-2.5 rounded-xl border border-[var(--line)] bg-[var(--paper)] hover:bg-[var(--hanji-2)] text-[var(--ink)] text-sm font-bold transition shadow-xs flex items-center gap-2"
+          >
+            <span>Products</span>
+            <span className="text-xs px-1.5 py-0.5 rounded-md bg-[var(--hanji-2)] font-mono text-[var(--muted)]">SKUs</span>
+          </Link>
+          <Link
             href="/admin/leads"
             className="px-5 py-2.5 rounded-xl bg-[var(--persimmon)] hover:bg-[var(--persimmon-d)] text-white text-sm font-bold transition shadow-xs"
           >

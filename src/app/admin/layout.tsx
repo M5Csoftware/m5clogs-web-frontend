@@ -36,6 +36,7 @@ export default function AdminLayout({
 
   const isDashboard = pathname === "/admin/dashboard" || pathname === "/admin";
   const isLeads = pathname?.startsWith("/admin/leads");
+  const isProducts = pathname?.startsWith("/admin/products");
   const isSettings = pathname?.startsWith("/admin/settings");
 
   return (
@@ -159,6 +160,32 @@ export default function AdminLayout({
                   />
                 </svg>
                 <span>Form Leads</span>
+              </Link>
+
+              {/* Products Management Link */}
+              <Link
+                href="/admin/products"
+                onClick={() => setMobileSidebarOpen(false)}
+                className={`flex items-center gap-3.5 px-4 py-3.5 rounded-xl text-base font-bold transition-all ${
+                  isProducts
+                    ? "bg-[var(--paper)] text-[var(--persimmon)] shadow-xs border-l-4 border-[var(--persimmon)]"
+                    : "text-[var(--ink)] hover:bg-[var(--paper)]/70 hover:text-[var(--persimmon)]"
+                }`}
+              >
+                <svg
+                  className={`w-5 h-5 shrink-0 ${isProducts ? "text-[var(--persimmon)]" : "text-[var(--muted)]"}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                  />
+                </svg>
+                <span>Products</span>
               </Link>
 
               {/* Settings Link */}
