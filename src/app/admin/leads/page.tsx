@@ -77,6 +77,32 @@ export default function AdminLeadsPage() {
     lead.email.toLowerCase().includes(search.toLowerCase())
   );
 
+  const renderDateWithTime = (createdAt: string) => {
+    if (!createdAt) return null;
+    if (createdAt.includes(",")) {
+      const [datePart, ...timeParts] = createdAt.split(",");
+      const timePart = timeParts.join(",").trim();
+      return (
+        <div className="flex flex-col whitespace-nowrap">
+          <span className="text-sm font-semibold text-[var(--ink)] leading-snug">{datePart.trim()}</span>
+          {timePart && (
+            <span className="text-xs text-[var(--muted)] font-mono mt-0.5 leading-snug">{timePart}</span>
+          )}
+        </div>
+      );
+    }
+    const match = createdAt.match(/^(.+?\d{4})[\s]+(\d{1,2}:\d{2}.*)$/i);
+    if (match) {
+      return (
+        <div className="flex flex-col whitespace-nowrap">
+          <span className="text-sm font-semibold text-[var(--ink)] leading-snug">{match[1].trim()}</span>
+          <span className="text-xs text-[var(--muted)] font-mono mt-0.5 leading-snug">{match[2].trim()}</span>
+        </div>
+      );
+    }
+    return <span className="text-sm font-semibold text-[var(--ink)]">{createdAt}</span>;
+  };
+
   const getStatusBadge = (status: string) => {
     switch (status) {
       case "New":
@@ -475,8 +501,8 @@ export default function AdminLeadsPage() {
                     <td className="py-5 px-6 text-sm text-[var(--muted)] font-medium max-w-xs truncate">
                       {lead.message}
                     </td>
-                    <td className="py-5 px-6 font-mono text-xs sm:text-sm text-[var(--muted)] whitespace-nowrap">
-                      {lead.createdAt}
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {renderDateWithTime(lead.createdAt)}
                     </td>
                     <td className="py-5 px-6">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${getStatusBadge(lead.status)}`}>
@@ -558,6 +584,7 @@ export default function AdminLeadsPage() {
                   <th className="py-4.5 px-6">City</th>
                   <th className="py-4.5 px-6">Categories Requested</th>
                   <th className="py-4.5 px-6">Enquiry Type</th>
+                  <th className="py-4.5 px-6">Date</th>
                   <th className="py-4.5 px-6">Status</th>
                   <th className="py-4.5 px-6 text-right">Actions</th>
                 </tr>
@@ -600,6 +627,9 @@ export default function AdminLeadsPage() {
                     </td>
                     <td className="py-5 px-6 text-sm font-bold text-[var(--ink)]">
                       {lead.enquiryType}
+                    </td>
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {renderDateWithTime(lead.createdAt)}
                     </td>
                     <td className="py-5 px-6">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${getStatusBadge(lead.status)}`}>
@@ -655,7 +685,7 @@ export default function AdminLeadsPage() {
                 ))}
                 {filteredPartnershipLeads.length === 0 && (
                   <tr>
-                    <td colSpan={8} className="py-16 text-center text-base text-[var(--muted)] font-medium">
+                    <td colSpan={9} className="py-16 text-center text-base text-[var(--muted)] font-medium">
                       No partnership applications found matching your criteria.
                     </td>
                   </tr>
@@ -695,8 +725,8 @@ export default function AdminLeadsPage() {
                     <td className="py-5 px-6 text-sm text-[var(--muted)] font-medium">
                       {sub.source}
                     </td>
-                    <td className="py-5 px-6 font-mono text-sm text-[var(--muted)]">
-                      {sub.createdAt}
+                    <td className="py-5 px-6 whitespace-nowrap">
+                      {renderDateWithTime(sub.createdAt)}
                     </td>
                     <td className="py-5 px-6">
                       <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-800 border border-emerald-200">

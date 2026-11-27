@@ -190,6 +190,20 @@ export function getContactLeads(): ContactLead[] {
   }
 }
 
+export function formatLeadDateTime(date: Date = new Date()): string {
+  const day = date.getDate();
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+  let hours = date.getHours();
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  const formattedHours = String(hours).padStart(2, "0");
+  return `${day} ${month} ${year}, ${formattedHours}:${minutes} ${ampm}`;
+}
+
 export function saveContactLead(data: {
   name: string;
   company?: string;
@@ -200,13 +214,7 @@ export function saveContactLead(data: {
   source?: string;
 }): ContactLead {
   const current = getContactLeads();
-  const dateStr = new Date().toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const dateStr = formatLeadDateTime();
 
   const newLead: ContactLead = {
     id: `CNT-2026-${1050 + current.length}`,
@@ -274,13 +282,7 @@ export function savePartnershipLead(data: {
   enquiryType: string;
 }): PartnershipLead {
   const current = getPartnershipLeads();
-  const dateStr = new Date().toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const dateStr = formatLeadDateTime();
 
   const newLead: PartnershipLead = {
     id: `PRT-2026-${2006 + current.length}`,
@@ -340,11 +342,7 @@ export function getNewsletterLeads(): NewsletterLead[] {
 
 export function saveNewsletterLead(email: string, source = "Website Footer"): NewsletterLead {
   const current = getNewsletterLeads();
-  const dateStr = new Date().toLocaleDateString("en-IN", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const dateStr = formatLeadDateTime();
 
   const newLead: NewsletterLead = {
     id: `NW-2026-${String(current.length + 1).padStart(3, "0")}`,
