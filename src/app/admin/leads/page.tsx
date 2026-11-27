@@ -606,8 +606,11 @@ export default function AdminLeadsPage() {
                         <div className="font-bold text-[14px] text-[var(--ink)] group-hover:text-[var(--jade)] transition-colors">
                           {lead.company}
                         </div>
+                        <div className="text-[14px] font-medium text-[var(--ink)] mt-0.5">
+                          {lead.name}
+                        </div>
                         <div className="text-[14px] text-[var(--muted)] font-medium mt-0.5">
-                          {lead.name} • {lead.email}
+                          {lead.email}
                         </div>
                         <div className="text-[14px] text-[var(--muted)] font-mono mt-0.5">
                           {lead.phone}
