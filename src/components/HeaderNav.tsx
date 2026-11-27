@@ -27,7 +27,7 @@ export default function HeaderNav() {
           isScrolled ? "border-b border-[var(--line)] shadow-sm" : "border-b border-transparent"
         }`}
       >
-        <div className="max-w-[var(--wrap)] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-6">
+        <div className="max-w-[var(--wrap)] mx-auto px-4 sm:px-10 h-20 flex items-center justify-between gap-6">
           {/* Logo */}
           <KoreanLogo />
 
