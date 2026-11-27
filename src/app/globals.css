@@ -21,7 +21,7 @@
   --serif: var(--font-serif), "Instrument Serif", Georgia, serif;
   --sans: var(--font-sans), "Manrope", system-ui, sans-serif;
   --kr: var(--font-kr), "Noto Serif KR", "Nanum Myeongjo", serif;
-  --wrap: 1240px;
+  --wrap: 1520px;
 }
 
 * {
@@ -65,12 +65,12 @@ button {
 .wrap {
   max-width: var(--wrap);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 44px;
 }
 
 @media (max-width: 640px) {
   .wrap {
-    padding: 0 18px;
+    padding: 0 20px;
   }
 }
 
@@ -112,13 +112,13 @@ h3 {
 
 p {
   margin: 0 0 1em;
-  max-width: 66ch;
+  max-width: 82ch;
 }
 
 .lead {
-  font-size: 1.16rem;
+  font-size: 1.18rem;
   color: var(--muted);
-  max-width: 58ch;
+  max-width: 75ch;
 }
 
 .muted {
