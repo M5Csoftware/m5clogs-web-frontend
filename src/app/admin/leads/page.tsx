@@ -623,10 +623,10 @@ export default function AdminLeadsPage() {
                     <td className="py-4 px-3.5 whitespace-nowrap text-[14px] font-medium text-[var(--ink)] text-left">
                       {lead.city}
                     </td>
-                    <td className="py-4 px-3.5 text-left">
-                      <div className="flex flex-wrap gap-1.5 max-w-xs justify-start">
+                    <td className="py-4 px-3.5 text-left whitespace-nowrap">
+                      <div className="flex flex-col gap-1.5 items-start">
                         {lead.categories.map((c) => (
-                          <span key={c} className="text-[14px] font-medium px-2.5 py-0.5 rounded bg-[var(--hanji)] border border-[var(--line)] text-[var(--ink)] whitespace-nowrap">
+                          <span key={c} className="text-[14px] font-medium px-2.5 py-0.5 rounded bg-[var(--hanji)] border border-[var(--line)] text-[var(--ink)] whitespace-nowrap inline-block">
                             {c}
                           </span>
                         ))}
